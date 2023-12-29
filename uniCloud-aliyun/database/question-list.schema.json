@@ -1,0 +1,208 @@
+{
+	"bsonType": "object",
+	"required": ["user_id", "title", "content", "category_id"],
+	"permission": {
+		"read": "doc.user_id == auth.uid && doc.question_status == 0 || doc.question_status == 1",
+		"create": "auth.uid != null",
+		"update": "doc.user_id == auth.uid",
+		"delete": "doc.user_id == auth.uid"
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"user_id": {
+			"bsonType": "string",
+			"description": "作者ID， 参考`uni-id-users` 表",
+			"foreignKey": "uni-id-users._id",
+			"defaultValue": {
+				"$env": "uid"
+			}
+		},
+		"category_id": {
+			"bsonType": "string",
+			"title": "分类",
+			"description": "分类 id，参考`uni-news-categories`表",
+			"foreignKey": "question-categories._id",
+			"enum": {
+				"collection": "question-categories",
+				"field": "name as text, _id as value"
+			}
+		},
+		"title": {
+			"bsonType": "string",
+			"title": "题目",
+			"description": "题目",
+			"label": "题目",
+			"trim": "both"
+		},
+		"difficulty": {
+			"bsonType": "int",
+			"title": "难度",
+			"description": "难度"
+		},
+		"content": {
+			"bsonType": "string",
+			"title": "试题内容",
+			"description": "试题内容",
+			"label": "试题内容",
+			"trim": "right"
+		},
+		"answer": {
+			"bsonType": "string",
+			"title": "试题答案",
+			"description": "试题答案",
+			"label": "试题答案",
+			"trim": "right"
+		},
+		"answer_analysis": {
+			"bsonType": "string",
+			"title": "答案解析",
+			"description": "答案解析",
+			"label": "答案解析"
+		},
+		"is_choice": {
+			"bsonType": "int",
+			"title": "是否为选择题",
+			"description": "是否为选择题：0 否 1 是",
+			"defaultValue": 0,
+			"enum": [{
+				"value": 0,
+				"text": "否"
+			}, {
+				"value": 1,
+				"text": "是"
+			}]
+		},
+		"answer_options": {
+			"bsonType": "string",
+			"title": "选项",
+			"description": "选项",
+			"enum": [{
+				"value": "A",
+				"text": "选项1"
+			}, {
+				"value": "B",
+				"text": "选项1"
+			}, {
+				"value": "C",
+				"text": "选项1"
+			}, {
+				"value": "D",
+				"text": "选项1"
+			}]
+		},
+		"question_status": {
+			"bsonType": "int",
+			"title": "试题状态",
+			"description": "文章状态：0 草稿箱 1 已发布",
+			"defaultValue": 0,
+			"enum": [{
+				"value": 0,
+				"text": "草稿箱"
+			}, {
+				"value": 1,
+				"text": "已发布"
+			}]
+		},
+		"view_count": {
+			"bsonType": "int",
+			"title": "阅读数量",
+			"description": "阅读数量",
+			"permission": {
+				"write": false
+			}
+		},
+		"like_count": {
+			"bsonType": "int",
+			"description": "喜欢数、点赞数",
+			"permission": {
+				"write": false
+			}
+		},
+		"is_sticky": {
+			"bsonType": "bool",
+			"title": "是否置顶",
+			"description": "是否置顶",
+			"permission": {
+				"write": false
+			}
+		},
+		"is_essence": {
+			"bsonType": "bool",
+			"title": "阅读加精",
+			"description": "阅读加精",
+			"permission": {
+				"write": false
+			}
+		},
+		"comment_status": {
+			"bsonType": "int",
+			"title": "开放评论",
+			"description": "评论状态：0 关闭 1 开放",
+			"enum": [{
+				"value": 0,
+				"text": "关闭"
+			}, {
+				"value": 1,
+				"text": "开放"
+			}]
+		},
+		"comment_count": {
+			"bsonType": "int",
+			"description": "评论数量",
+			"permission": {
+				"write": false
+			}
+		},
+		"last_comment_user_id": {
+			"bsonType": "string",
+			"description": "最后回复用户 id，参考`uni-id-users` 表",
+			"foreignKey": "uni-id-users._id"
+		},
+		"publish_date": {
+			"bsonType": "timestamp",
+			"title": "发表时间",
+			"description": "发表时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"publish_ip": {
+			"bsonType": "string",
+			"title": "发布文章时IP地址",
+			"description": "发表时 IP 地址",
+			"forceDefaultValue": {
+				"$env": "clientIP"
+			}
+		},
+		"last_modify_date": {
+			"bsonType": "timestamp",
+			"title": "最后修改时间",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"last_modify_ip": {
+			"bsonType": "string",
+			"description": "最后修改时 IP 地址",
+			"forceDefaultValue": {
+				"$env": "clientIP"
+			}
+		},
+		"mode": {
+			"bsonType": "int",
+			"title": "查看模式",
+			"description": "试题展示模式, 0: 普通模式； 1: 背题模式",
+			"defaultValue": 0,
+			"enum": [{
+				"value": 0,
+				"text": "普通模式"
+			}, {
+				"value": 1,
+				"text": "背题模式"
+			}]
+		}
+	}
+}
