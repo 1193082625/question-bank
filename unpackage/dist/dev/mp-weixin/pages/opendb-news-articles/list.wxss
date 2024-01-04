@@ -1,0 +1,14 @@
+
+.article-item{
+	display: flex;
+	flex-direction: column;
+}
+.title{
+	display: block;
+	font-size: 14px;
+}
+.excerpt{
+	display: block;
+	font-size: 12px;
+}
+

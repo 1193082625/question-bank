@@ -6,11 +6,21 @@
         <uni-list>
           <uni-list-item v-for="(item, index) in data" :key="index" showArrow :clickable="true" @click="handleItemClick(item._id)">
             <template v-slot:body>
-              <text>
-                <!-- 此处默认显示为_id，请根据需要自行修改为其他字段 -->
-                <!-- 如果使用了联表查询，请参考生成的 admin 项目中 list.vue 页面 -->
-                {{item.title}}
-              </text>
+				<view class="article-item">
+				  <text class="title">
+					<!-- 此处默认显示为_id，请根据需要自行修改为其他字段 -->
+					<!-- 如果使用了联表查询，请参考生成的 admin 项目中 list.vue 页面 -->
+					{{item.title}}
+				  </text>
+				  <!-- todo 显示用户名 -->
+				  <!-- <text>{{item.user_id[0].nickname}}</text> -->
+				  <text class="excerpt">
+					  {{item.excerpt}}
+				  </text>
+				  <view class="like-box">
+					  <text v-if="item.like_count > 0">{{item.like_count}}赞同</text>
+				  </view>
+				</view>
             </template>
           </uni-list-item>
         </uni-list>
@@ -69,4 +79,16 @@
 </script>
 
 <style>
+	.article-item{
+		display: flex;
+		flex-direction: column;
+	}
+	.title{
+		display: block;
+		font-size: 14px;
+	}
+	.excerpt{
+		display: block;
+		font-size: 12px;
+	}
 </style>

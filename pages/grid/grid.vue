@@ -20,12 +20,10 @@
 		</unicloud-db>
 		
 		<uni-notice-bar showIcon scrollable single text="截止现在,已录入800题"></uni-notice-bar>
-
-		
-		<view class="last-work-time">
+		<!-- <view class="last-work-time">
 			<text>上次练习时间：2023-12-27 17:28</text>
-			<button type="default">继续刷题</button>
-		</view>
+			<button type="default" @click="goGame">继续刷题</button>
+		</view> -->
 		<!-- 宫格 -->
 		<view class="section-box">
 			<text class="decoration"></text>
@@ -85,6 +83,14 @@
 			this.gridList = gridList
 		},
 		methods: {
+			goGame() {
+				uni.navigateTo({
+					url: '/pages/game/game',
+					success(e) {
+						console.log('进入游戏页面', e);
+					}
+				})
+			},
 			goList(cId) {
 				console.log('要进入列表页了', cId);
 				uni.reLaunch({

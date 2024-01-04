@@ -127,6 +127,13 @@
     "style": {
         "navigationBarTitleText": "详情"
     }
+},
+{
+	"path" : "pages/game/game",
+	"style" : 
+	{
+		"navigationBarTitleText" : "Game"
+	}
 }
 ],
 	"subPackages": [{

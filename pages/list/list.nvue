@@ -1,18 +1,23 @@
 <template>
 	<view class="pages">
-		<!-- #ifndef H5 -->
-		<statusBar></statusBar>
-		<!-- #endif -->
-
 		<!-- 搜索功能 -->
-		<view class="uni-search-box">
-			<uni-search-bar v-model="keyword" ref="searchBar" radius="100" cancelButton="none" disabled
-				:placeholder="inputPlaceholder" />
-			<view class="cover-search-bar" @click="searchClick"></view>
+		<view class="top-box">
+			<view class="uni-search-box">
+				<uni-search-bar v-model="keyword" ref="searchBar" radius="100" cancelButton="none" disabled
+					:placeholder="inputPlaceholder" />
+				<view class="cover-search-bar" @click="searchClick"></view>
+			</view>
+			<view class="sort-select">
+				<uni-data-select
+				  v-model="sortValue"
+				  :localdata="sortRange"
+				  @change="changeSelect"
+				  :clear="false"
+				></uni-data-select>
+			</view>
 		</view>
-		
 		<!-- 筛选与排序 -->
-		<view class="filter-box">
+		<!-- <view class="filter-box">
 			<view>
 				<uni-data-select
 					collection="question-categories"
@@ -22,15 +27,7 @@
 					@change="changeCategory"
 				></uni-data-select>
 			</view>
-			<view>
-				<uni-data-select
-				  v-model="sortValue"
-				  :localdata="sortRange"
-				  @change="changeSelect"
-				  :clear="false"
-				></uni-data-select>
-			</view>
-		</view>
+		</view> -->
 
 		<unicloud-db ref='udb' v-slot:default="{data,pagination,hasMore, loading, error, options}" @error="onqueryerror"
 			:collection="colList" :page-size="10"
@@ -108,7 +105,7 @@
 		},
 		data() {
 			return {
-				_id: '',
+				// _id: '',
 				where: '"question_status" == 1',
 				orderby: {
 					key: '_id',
@@ -259,7 +256,14 @@
 	.pages {
 		background-color: #FFFFFF;
 	}
-
+	.top-box{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	.sort-select{
+		width: 260rpx;
+	}
 	.filter-box{
 		display: flex;
 		gap: 50rpx;
@@ -335,8 +339,9 @@
 		z-index: 9;
 		/* #endif */
 		/* #ifdef MP-WEIXIN */
-		width: 580rpx;
+		width: 100%;
 		/* #endif */
+		flex: 1;
 	}
 	.cover-search-bar {
 		height: 50px;

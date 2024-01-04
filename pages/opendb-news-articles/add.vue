@@ -1,18 +1,18 @@
 <template>
   <view class="uni-container">
     <uni-forms ref="form" :model="formData" validate-trigger="submit" err-show-type="toast">
-      <uni-forms-item name="category_id" label="分类">
-        <uni-data-picker v-model="formData.category_id" collection="opendb-news-categories" field="name as text, _id as value"></uni-data-picker>
-      </uni-forms-item>
       <uni-forms-item name="title" label="标题" required>
         <uni-easyinput placeholder="标题" v-model="formData.title" trim="both"></uni-easyinput>
       </uni-forms-item>
-      <uni-forms-item name="content" label="文章内容" required>
-        <!-- <uni-easyinput type="textarea" placeholder="文章内容" v-model="formData.content" trim="right"></uni-easyinput> -->
-		<editor id="editor-content" placeholder="请输入文章内容"></editor>
+      <uni-forms-item name="category_id" label="分类">
+        <uni-data-picker v-model="formData.category_id" collection="opendb-news-categories" field="name as text, _id as value"></uni-data-picker>
       </uni-forms-item>
-      <uni-forms-item name="excerpt" label="文章摘录">
-        <uni-easyinput type="textarea" placeholder="文章摘录" v-model="formData.excerpt" trim="both" maxlength="120"></uni-easyinput>
+      <uni-forms-item name="content" label="文章内容" required>
+		<customEditor @dataChange="changeContent"></customEditor>
+        <!-- <uni-easyinput placeholder="文章内容" v-model="formData.content" trim="right"></uni-easyinput> -->
+      </uni-forms-item>
+      <uni-forms-item name="article_status" label="文章状态">
+        <uni-data-checkbox v-model="formData.article_status" :localdata="formOptions.article_status_localdata"></uni-data-checkbox>
       </uni-forms-item>
       <uni-forms-item name="comment_status" label="开放评论">
         <uni-data-checkbox v-model="formData.comment_status" :localdata="formOptions.comment_status_localdata"></uni-data-checkbox>
@@ -94,7 +94,9 @@
       this.$refs.form.setRules(this.rules)
     },
     methods: {
-      
+		changeContent(data) {
+			this.formData.content = data;
+		},
       /**
        * 验证表单并提交
        */
@@ -103,7 +105,10 @@
           mask: true
         })
         this.$refs.form.validate().then((res) => {
-          return this.submitForm(res)
+          return this.submitForm({
+			  ...res,
+			  excerpt: res.content.substring(0, 120),
+		  })
         }).catch(() => {
         }).finally(() => {
           uni.hideLoading()

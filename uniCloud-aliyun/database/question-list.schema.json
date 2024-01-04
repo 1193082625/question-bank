@@ -2,7 +2,7 @@
 	"bsonType": "object",
 	"required": ["user_id", "title", "content", "category_id"],
 	"permission": {
-		"read": "doc.user_id == auth.uid && doc.question_status == 0 || doc.question_status == 1",
+		"read": "doc.question_status == 0 || doc.question_status == 1",
 		"create": "auth.uid != null",
 		"update": "doc.user_id == auth.uid",
 		"delete": "doc.user_id == auth.uid"
@@ -75,22 +75,9 @@
 			}]
 		},
 		"answer_options": {
-			"bsonType": "string",
+			"bsonType": "array",
 			"title": "选项",
-			"description": "选项",
-			"enum": [{
-				"value": "A",
-				"text": "选项1"
-			}, {
-				"value": "B",
-				"text": "选项1"
-			}, {
-				"value": "C",
-				"text": "选项1"
-			}, {
-				"value": "D",
-				"text": "选项1"
-			}]
+			"description": "选项"
 		},
 		"question_status": {
 			"bsonType": "int",
