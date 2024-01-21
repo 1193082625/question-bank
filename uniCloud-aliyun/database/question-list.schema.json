@@ -1,6 +1,6 @@
 {
 	"bsonType": "object",
-	"required": ["user_id", "title", "content", "category_id"],
+	"required": ["user_id", "title", "category_id"],
 	"permission": {
 		"read": "doc.question_status == 0 || doc.question_status == 1",
 		"create": "auth.uid != null",
@@ -83,6 +83,7 @@
 			"bsonType": "int",
 			"title": "试题状态",
 			"description": "文章状态：0 草稿箱 1 已发布",
+			"forceDefaultValue": 0,
 			"defaultValue": 0,
 			"enum": [{
 				"value": 0,

@@ -14,6 +14,8 @@
 	padding-left: 30rpx;
 	padding-right: 30rpx;
 	border-bottom: 1px solid #efeded;
+	position: relative;
+	z-index: 100000;
 }
 .t-btn.data-v-ed2c8c0e{
 	color: #007aff;
@@ -169,5 +171,20 @@
 	font-size: 14px;
 	border-radius: 40rpx;
 	font-weight: bold;
+}
+.flex-row.data-v-ed2c8c0e{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.question-content.data-v-ed2c8c0e{
+	margin-top: 10px;
+}
+.analysis-title.data-v-ed2c8c0e{
+	display: block;
+	font-size: 32rpx;
+	font-weight: bold;
+	margin-bottom: 30rpx;
 }
 

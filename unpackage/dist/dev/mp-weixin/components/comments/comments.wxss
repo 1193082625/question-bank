@@ -1,0 +1,14 @@
+
+.comments-title{
+	font-size: 28rpx;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 20rpx;
+}
+.comments {
+	margin-top: 40rpx;
+}
+.comment-btn {
+	margin-top: 20rpx;
+}
+

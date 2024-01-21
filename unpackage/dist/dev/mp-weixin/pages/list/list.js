@@ -103,29 +103,26 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
-    uniSearchBar: function () {
-      return Promise.all(/*! import() | uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.vue */ 328))
-    },
     uniDataSelect: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-data-select/components/uni-data-select/uni-data-select */ "uni_modules/uni-data-select/components/uni-data-select/uni-data-select").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-data-select/components/uni-data-select/uni-data-select.vue */ 339))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-data-select/components/uni-data-select/uni-data-select */ "uni_modules/uni-data-select/components/uni-data-select/uni-data-select").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-data-select/components/uni-data-select/uni-data-select.vue */ 382))
     },
     unicloudDb: function () {
-      return Promise.all(/*! import() | node-modules/@dcloudio/uni-cli-shared/components/unicloud-db */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-cli-shared/components/unicloud-db")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-cli-shared/components/unicloud-db.vue */ 296))
+      return Promise.all(/*! import() | node-modules/@dcloudio/uni-cli-shared/components/unicloud-db */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-cli-shared/components/unicloud-db")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-cli-shared/components/unicloud-db.vue */ 350))
     },
     uniList: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 346))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 389))
     },
     uniListItem: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 353))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 396))
     },
     uniRate: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-rate/components/uni-rate/uni-rate */ "uni_modules/uni-rate/components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-rate/components/uni-rate/uni-rate.vue */ 360))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-rate/components/uni-rate/uni-rate */ "uni_modules/uni-rate/components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-rate/components/uni-rate/uni-rate.vue */ 403))
     },
     uniDateformat: function () {
-      return Promise.all(/*! import() | uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat.vue */ 367))
+      return Promise.all(/*! import() | uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-dateformat/components/uni-dateformat/uni-dateformat.vue */ 410))
     },
     uniLoadState: function () {
-      return Promise.all(/*! import() | components/uni-load-state/uni-load-state */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-load-state/uni-load-state")]).then(__webpack_require__.bind(null, /*! @/components/uni-load-state/uni-load-state.vue */ 373))
+      return Promise.all(/*! import() | components/uni-load-state/uni-load-state */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-load-state/uni-load-state")]).then(__webpack_require__.bind(null, /*! @/components/uni-load-state/uni-load-state.vue */ 416))
     },
   }
 } catch (e) {
@@ -161,11 +158,23 @@ var render = function () {
       }
     : null
   if (!_vm._isMounted) {
-    _vm.e0 = function ($event, item) {
+    _vm.e0 = function ($event, item, index) {
       var _temp = arguments[arguments.length - 1].currentTarget.dataset,
         _temp2 = _temp.eventParams || _temp["event-params"],
-        item = _temp2.item
+        item = _temp2.item,
+        index = _temp2.index
       var _temp, _temp2
+      return _vm.goDetail(
+        item,
+        _vm.$getSSP("2e637200-3", "default")["data"],
+        index
+      )
+    }
+    _vm.e1 = function ($event, item) {
+      var _temp3 = arguments[arguments.length - 1].currentTarget.dataset,
+        _temp4 = _temp3.eventParams || _temp3["event-params"],
+        item = _temp4.item
+      var _temp3, _temp4
       return _vm.__set_model(item, "difficulty", $event, [])
     }
   }
@@ -331,15 +340,11 @@ var _gps = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/json-gps
 //
 //
 //
-//
-//
-//
-//
 
 var cdbRef;
 var statusBar = function statusBar() {
   __webpack_require__.e(/*! require.ensure | uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar */ "uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar").then((function () {
-    return resolve(__webpack_require__(/*! @/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar */ 383));
+    return resolve(__webpack_require__(/*! @/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar */ 433));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var gps = new _gps.default(),
@@ -357,12 +362,12 @@ var _default = {
       }
     },
     colList: function colList() {
-      return [db.collection('question-list').where(this.where).field('title,is_choice,difficulet,content,last_modify_date,user_id').orderBy(this.orderby.key, this.orderby.val).getTemp(), db.collection('uni-id-users').field('_id,nickname').getTemp()];
+      return [db.collection('question-list').where(this.where).field('title,is_choice,difficulty,content,last_modify_date,user_id').orderBy(this.orderby.key, this.orderby.val).getTemp(), db.collection('uni-id-users').field('_id,nickname').getTemp()];
     }
   },
   data: function data() {
     return {
-      // _id: '',
+      _id: '',
       where: '"question_status" == 1',
       orderby: {
         key: '_id',
@@ -383,15 +388,16 @@ var _default = {
         text: "难度降序"
       }, {
         value: 'last_modify_date-asc',
-        text: "更新时间升序"
+        text: "时间升序"
       }, {
         value: 'last_modify_date-desc',
-        text: "更新时间降序"
+        text: "时间降序"
       }]
     };
   },
   watch: {
     keyword: function keyword(_keyword, oldValue) {
+      console.log('搜索内容发生变化', _keyword);
       var wheres = this.where.split('&&');
       wheres = wheres.filter(function (item) {
         return item.indexOf('category_id') === -1;
@@ -399,7 +405,7 @@ var _default = {
       if (_keyword) {
         wheres.push("/".concat(_keyword, "/.test(title)"));
       }
-      this.where = wheres.join('&& ');
+      this.where = wheres.join('&&');
       console.log('修改了搜索内容', this.where);
     }
   },
@@ -423,7 +429,6 @@ var _default = {
   onShow: function onShow() {
     var _this2 = this;
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      var location;
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -436,13 +441,20 @@ var _default = {
               // 	title:"获取定位中"
               // });
               //默认h5端不获取定位
-              _context2.next = 4;
-              return gps.getLocation({
-                geocode: true
-              });
-            case 4:
-              location = _context2.sent;
-            case 5:
+
+              // let location = await gps.getLocation({
+              // 	geocode: true
+              // })
+              // console.log(location);
+
+              // if(location){
+              // 	uni.showToast({
+              // 		title: JSON.stringify(location),
+              // 		icon: 'none'
+              // 	});
+              // }
+              // uni.hideLoading()
+            case 2:
             case "end":
               return _context2.stop();
           }
@@ -453,18 +465,48 @@ var _default = {
   onLoad: function onLoad(event) {
     // 获取分类id
     if (event.category_id) {
-      console.log('要带上分类id获取数据', event.category_id);
       this._id = event.category_id;
       this.changeCategory(event.category_id);
+    } else {
+      this._id = '';
     }
   },
   methods: {
+    goDetail: function goDetail(item, list, index) {
+      uni.setStorage({
+        key: 'question-lists',
+        data: list,
+        success: function success() {
+          console.log('数据存储成功');
+        }
+      });
+      uni.navigateTo({
+        url: "/pages/list/detail?id=".concat(item._id, "&qIndex=").concat(index, "&title=").concat(item.title)
+      });
+    },
+    fabClick: function fabClick() {
+      console.log('要进入添加页面');
+      // 打开新增页面
+      uni.navigateTo({
+        url: './add',
+        events: {
+          // 监听新增数据成功后, 刷新当前页面数据
+          refreshData: function refreshData() {
+            cdbRef.loadData({
+              clear: true
+            });
+          }
+        }
+      });
+    },
     changeCategory: function changeCategory(cId) {
       var wheres = this.where.split('&&');
       wheres = wheres.filter(function (item) {
         return item.indexOf('category_id') === -1;
       });
-      wheres.push("\"category_id\" == \"".concat(cId, "\""));
+      if (cId) {
+        wheres.push("\"category_id\" == \"".concat(cId, "\""));
+      }
       this.where = wheres.join('&&');
     },
     changeSelect: function changeSelect(e) {

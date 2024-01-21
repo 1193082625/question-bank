@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["uni_modules/uni-feedback/common/vendor"],{
 
-/***/ 177:
+/***/ 231:
 /*!**********************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-feedback/js_sdk/validator/opendb-feedback.js ***!
   \**********************************************************************************************************************/

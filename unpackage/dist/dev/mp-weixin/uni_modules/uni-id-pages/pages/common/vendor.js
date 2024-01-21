@@ -1,13 +1,13 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["uni_modules/uni-id-pages/pages/common/vendor"],{
 
-/***/ 194:
+/***/ 248:
 /*!************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js ***!
   \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(/*! ./objectWithoutPropertiesLoose.js */ 195);
+var objectWithoutPropertiesLoose = __webpack_require__(/*! ./objectWithoutPropertiesLoose.js */ 249);
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
   var target = objectWithoutPropertiesLoose(source, excluded);
@@ -27,7 +27,7 @@ module.exports = _objectWithoutProperties, module.exports.__esModule = true, mod
 
 /***/ }),
 
-/***/ 195:
+/***/ 249:
 /*!*****************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js ***!
   \*****************************************************************************/
@@ -50,7 +50,7 @@ module.exports = _objectWithoutPropertiesLoose, module.exports.__esModule = true
 
 /***/ }),
 
-/***/ 196:
+/***/ 250:
 /*!**********************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/common/check-id-card.js ***!
   \**********************************************************************************************************/
@@ -80,7 +80,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 197:
+/***/ 251:
 /*!*************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/common/login-page.mixin.js ***!
   \*************************************************************************************************************/
@@ -96,7 +96,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _store = __webpack_require__(/*! @/uni_modules/uni-id-pages/common/store.js */ 102);
+var _store = __webpack_require__(/*! @/uni_modules/uni-id-pages/common/store.js */ 119);
 var _config = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-id-pages/config.js */ 47));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -186,7 +186,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 246:
+/***/ 300:
 /*!**************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/pages/register/validator.js ***!
   \**************************************************************************************************************/
@@ -202,7 +202,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _password = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-id-pages/common/password.js */ 247));
+var _password = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-id-pages/common/password.js */ 301));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var _default = _objectSpread({
@@ -262,7 +262,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 247:
+/***/ 301:
 /*!*****************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/common/password.js ***!
   \*****************************************************************************************************/

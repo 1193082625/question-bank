@@ -11,9 +11,9 @@
 		<uni-nav-bar :statusBar="true" :border="false"></uni-nav-bar>
 		<!-- #endif -->
 		<view class="detail-top">
-			<text class="t-btn">上一题</text>
-			<text class="t-title">第{{qIndex}}题</text>
-			<text class="t-btn">下一题</text>
+			<text class="t-btn" @click="goPrev">上一题</text>
+			<text class="t-title">第{{Number(qIndex)+1}}题</text>
+			<text class="t-btn" @click="goNext">下一题</text>
 		</view>
 		<view class="article-title">题目：{{ title }}</view>
 		<unicloud-db v-slot:default="{data, loading, error, options}" :options="formData" collection="question-list,uni-id-users"
@@ -25,30 +25,26 @@
 						<!-- 通过body插槽定义作者信息内容 -->
 						<template v-slot:body>
 							<view class="header-content">
-								<view class="difficulty">
-									<text class="d-title">难度：</text>
-									<uni-rate v-model="data.difficulty" touchable="false" :size="18" :readonly="true" :is-fill="false"/>
+								<view class="flex-row">
+									<view class="difficulty">
+										<text class="d-title">难度：</text>
+										<uni-rate v-model="data.difficulty" touchable="false" :size="18" :readonly="true" :is-fill="false"/>
+									</view>
+									<view class="uni-note">更新于
+										<uni-dateformat :date="data.last_modify_date" format="yyyy-MM-dd hh:mm"
+											:threshold="[60000, 2592000000]" />
+									</view>
 								</view>
-							</view>
-						</template>
-						<template v-slot:footer>
-							<view class="footer">
-								<view class="uni-note">更新于
-									<uni-dateformat :date="data.last_modify_date" format="yyyy-MM-dd hh:mm"
-										:threshold="[60000, 2592000000]" />
+								<view v-if="data.title !== data.content" class="question-content">
+									<text>{{data.content}}</text>
 								</view>
 							</view>
 						</template>
 					</uni-list-item>
 				</uni-list>
-					<!-- 文章摘要 -->
-				<!-- <view class="banner">
-					<view class="banner-title">
-						<text class="uni-ellipsis">{{data.excerpt}}</text>
-					</view>
-				</view> -->
-				<view class="article-content">
-					<rich-text :nodes="data.content"></rich-text>
+				<view class="article-content" v-if="isShowAnalysis">
+					<text class="analysis-title">答案及解析：</text>
+					<rich-text :nodes="data.answer_analysis"></rich-text>
 				</view>
 				<view class="d-footer">
 					<view class="down-menu">
@@ -59,17 +55,18 @@
 						<uni-popup ref="popup" background-color="#fff">
 							<view class="popup-list">
 								<!-- todo 动态切换展示内容 -->
-								<text @click="changeMode(data.mode)">切换到{{data.mode === 0 ? '背题模式' : '“普通模式”'}}</text>
-								<text>答案问题反馈</text>
+								<text @click="changeMode(readMode)">切换到{{readMode === 0 ? '背题模式' : '“普通模式”'}}</text>
+								<!-- <text>答案问题反馈</text> -->
 							</view>
 							<text class="popup-btn" @click="closePopup">取消</text>
 						</uni-popup>
 					</view>
-					<view class="fav-btn">
+					<!-- <view class="fav-btn" @click="setFavorite">
 						<uni-icons class="icon" type="heart" size="14" color="#ffffff"></uni-icons>
 						<text>收藏</text>
-					</view>
-					<text class="next-btn">继续刷题</text>
+					</view> -->
+					<text class="next-btn" v-if="!isShowAnalysis" @click="showAnalysis">查看答案</text>
+					<text class="next-btn" v-else-if="isShowAnalysis" @click="goNext">继续刷题</text>
 				</view>
 			</template>
 		</unicloud-db>
@@ -112,7 +109,9 @@
 				field: 'user_id.nickname,user_id._id,last_modify_date,comment_count,like_count,title,content,difficulty,answer,answer_analysis,is_choice,answer_options',
 				formData: {
 					noData: '<p style="text-align:center;color:#666">详情加载中...</p>'
-				}
+				},
+				isShowAnalysis: false,
+				readMode: 0,
 			}
 		},
 		computed: {
@@ -139,6 +138,13 @@
 					title: event.title
 				})
 			}
+			uni.getStorage({
+				key: 'question-readMode',
+				success: (res) => {
+					this.isShowAnalysis = res.data === 1;
+					this.readMode = res.data;
+				}
+			})
 		},
 		onReady() {
 			// 开始加载数据，修改 where 条件后才开始去加载 clinetDB 的数据 ，需要等组件渲染完毕后才开始执行 loadData，所以不能再 onLoad 中执行
@@ -160,9 +166,64 @@
 			$log(...args){
 				console.log('args',...args,this.id)
 			},
-			changeMode(mode = 0) {
+			showAnalysis() {
+				this.isShowAnalysis = true;
+			},
+			goPrev() {
+				uni.getStorage({
+					key: 'question-lists',
+					success: (res) => {
+						const list = res.data;
+						const prevIndex = Number(this.qIndex)-1;
+						const prevItem = list[prevIndex];
+						if(prevItem) {
+							this.qIndex = prevIndex;
+							this.title = prevItem.title;
+							this.id = prevItem.id;
+							this.$refs.detail.loadData();
+						} else {
+							uni.showToast({
+								title: '已经是第一条数据了！'
+							})
+						}
+					},
+					fail() {
+						console.log('获取缓存失败');
+					}
+				})
+			},
+			goNext() {
+				uni.getStorage({
+					key: 'question-lists',
+					success: (res) => {
+						const list = res.data;
+						const nextIndex = Number(this.qIndex)+1;
+						const nextItem = list[nextIndex];
+						if(nextItem) {
+							this.qIndex = nextIndex;
+							this.title = nextItem.title;
+							this.id = nextItem.id;
+							this.$refs.detail.loadData()
+						} else {
+							uni.showToast({
+								title: '已经是最后一条数据了！'
+							})
+						}
+					},
+					fail() {
+						console.log('获取缓存失败');
+					}
+				})
+			},
+			changeMode(mode) {
 				const newMode = mode === 0 ? 1 : 0;
-				console.log('要切换阅读模式', mode, newMode);
+				uni.setStorage({
+					key: 'question-readMode',
+					data: newMode,
+				})
+				this.isShowAnalysis = newMode === 1;
+				this.readMode = newMode;
+				this.$refs.popup.close();
 			},
 			openPopup() {
 				this.$refs.popup.open('bottom');
@@ -172,13 +233,13 @@
 			},
 			setReadQuestionsLog(){
 				let item = {
-					"article_id":this.id,
+					"question_id":this.id,
 					"last_time":Date.now()
 				},
 				readQuestionsLog = uni.getStorageSync('readQuestionsLog')||[],
 				index = -1;
-				readQuestionsLog.forEach(({article_id},i)=>{
-					if(article_id == item.article_id){
+				readQuestionsLog.forEach(({question_id},i)=>{
+					if(question_id == item.question_id){
 						index = i
 					}
 				})
@@ -188,24 +249,28 @@
 					readQuestionsLog.splice(index,1,item)
 				}
 				uni.setStorageSync('readQuestionsLog',readQuestionsLog)
-				console.log(readQuestionsLog);
 			},
 			setFavorite() {
-				if ( uniCloud.getCurrentUserInfo().tokenExpired < Date.now() ){
-					return console.log('未登录用户');
-				}
-				let article_id = this.id,
+				// if ( uniCloud.getCurrentUserInfo().tokenExpired < Date.now() ){
+				// 	return console.log('未登录用户');
+				// }
+				let question_id = this.id,
 					last_time = Date.now();
-					console.log({article_id,last_time});
-					readQuestionsLog.where(`"article_id" == "${article_id}" && "user_id"==$env.uid`)
+					console.log({question_id,last_time});
+					readQuestionsLog.where(`"question_id" == "${question_id}" && "user_id"==$env.uid`)
 						.update({last_time})
 						.then(({result:{updated}}) => {
 							console.log('updated',updated);
 							if (!updated) {
-								readQuestionsLog.add({article_id}).then(e=>{
+								readQuestionsLog.add({question_id}).then(e=>{
 									console.log(e);
+									uni.showToast({
+										title: '收藏成功'
+									})
 								}).catch(err => {
-									console.log(err);
+									uni.showToast({
+										title: '收藏失败'
+									})
 								})
 							}
 						}).catch(err => {
@@ -219,7 +284,6 @@
 					uni.setNavigationBarTitle({
 						title: data[0].title
 					});
-
 				}
 				this.setReadQuestionsLog();
 			},
@@ -342,6 +406,8 @@
 		padding-left: 30rpx;
 		padding-right: 30rpx;
 		border-bottom: 1px solid #efeded;
+		position: relative;
+		z-index: 100000;
 	}
 	.t-btn{
 		color: #007aff;
@@ -505,5 +571,20 @@
 		font-size: 14px;
 		border-radius: 40rpx;
 		font-weight: bold;
+	}
+	.flex-row{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.question-content{
+		margin-top: 10px;
+	}
+	.analysis-title{
+		display: block;
+		font-size: 32rpx;
+		font-weight: bold;
+		margin-bottom: 30rpx;
 	}
 </style>

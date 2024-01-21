@@ -1,0 +1,22 @@
+
+.activite.data-v-a28275e4 {
+	color: #007AFF;
+}
+.tab-content.data-v-a28275e4 {
+	height: calc(100vh - 188rpx);
+}
+.scroll-view_H.data-v-a28275e4 {
+	white-space: nowrap;
+	width: 100%;
+	color: #CCCCCC;
+}
+.scroll-view-item_H.data-v-a28275e4 {
+	display: inline-block;
+	width: 33%;
+	height: 50rpx;
+	line-height: 50rpx;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 32rpx;
+}
+

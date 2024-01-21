@@ -58,7 +58,33 @@ module.exports = _nonIterableRest, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 100:
+/***/ 11:
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toPropertyKey = __webpack_require__(/*! ./toPropertyKey.js */ 12);
+function _defineProperty(obj, key, value) {
+  key = toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 117:
 /*!******************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-upgrade-center-app/utils/check-update.js ***!
   \******************************************************************************************************************/
@@ -73,7 +99,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = _default;
-var _callCheckVersion = _interopRequireDefault(__webpack_require__(/*! ./call-check-version */ 101));
+var _callCheckVersion = _interopRequireDefault(__webpack_require__(/*! ./call-check-version */ 118));
 // 推荐再App.vue中使用
 var PACKAGE_INFO_KEY = '__package_info__';
 function _default() {}
@@ -151,7 +177,7 @@ function updateUseModal(packageInfo) {
 
 /***/ }),
 
-/***/ 101:
+/***/ 118:
 /*!************************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-upgrade-center-app/utils/call-check-version.js ***!
   \************************************************************************************************************************/
@@ -175,7 +201,7 @@ function _default() {
 
 /***/ }),
 
-/***/ 102:
+/***/ 119:
 /*!**************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/common/store.js ***!
   \**************************************************************************************************/
@@ -424,32 +450,6 @@ exports.store = store;
 
 /***/ }),
 
-/***/ 11:
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var toPropertyKey = __webpack_require__(/*! ./toPropertyKey.js */ 12);
-function _defineProperty(obj, key, value) {
-  key = toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
-module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
 /***/ 12:
 /*!**************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/toPropertyKey.js ***!
@@ -467,7 +467,27 @@ module.exports = _toPropertyKey, module.exports.__esModule = true, module.export
 
 /***/ }),
 
-/***/ 121:
+/***/ 13:
+/*!*******************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+}
+module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 138:
 /*!************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/pages/ucenter/settings/dc-push/push.js ***!
   \************************************************************************************************/
@@ -603,27 +623,57 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 13:
-/*!*******************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
-  \*******************************************************/
+/***/ 14:
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toPrimitive.js ***!
+  \************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
 }
-module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 138:
+/***/ 15:
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/construct.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
+var isNativeReflectConstruct = __webpack_require__(/*! ./isNativeReflectConstruct.js */ 17);
+function _construct(Parent, args, Class) {
+  if (isNativeReflectConstruct()) {
+    module.exports = _construct = Reflect.construct.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
+  } else {
+    module.exports = _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) setPrototypeOf(instance, Class.prototype);
+      return instance;
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  }
+  return _construct.apply(null, arguments);
+}
+module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 155:
 /*!**************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/js_sdk/validator/opendb-news-articles.js ***!
   \**************************************************************************************************/
@@ -831,56 +881,6 @@ function filterToWhere(filter, command) {
   }
   return where;
 }
-
-/***/ }),
-
-/***/ 14:
-/*!************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/toPrimitive.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
-function _toPrimitive(input, hint) {
-  if (_typeof(input) !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (_typeof(res) !== "object") return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 15:
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/construct.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
-var isNativeReflectConstruct = __webpack_require__(/*! ./isNativeReflectConstruct.js */ 17);
-function _construct(Parent, args, Class) {
-  if (isNativeReflectConstruct()) {
-    module.exports = _construct = Reflect.construct.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
-  } else {
-    module.exports = _construct = function _construct(Parent, args, Class) {
-      var a = [null];
-      a.push.apply(a, args);
-      var Constructor = Function.bind.apply(Parent, a);
-      var instance = new Constructor();
-      if (Class) setPrototypeOf(instance, Class.prototype);
-      return instance;
-    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  }
-  return _construct.apply(null, arguments);
-}
-module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
@@ -10547,11 +10547,11 @@ var S = "development" === "development",
   T = I({
     "address": [
         "127.0.0.1",
-        "192.168.10.189"
+        "192.168.1.6"
     ],
-    "debugPort": 9001,
-    "initialLaunchType": "local",
-    "servePort": 7002,
+    "debugPort": 9002,
+    "initialLaunchType": "remote",
+    "servePort": 7003,
     "skipFiles": [
         "<node_internals>/**",
         "/Applications/HBuilderX.app/Contents/HBuilderX/plugins/unicloud/**/*.js"
@@ -18267,96 +18267,6 @@ module.exports = _assertThisInitialized, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 301:
-/*!************************************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/index.js ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _en_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./en.json */ 302);
-var _en_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./en.json */ 302, 1);
-/* harmony import */ var _es_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./es.json */ 303);
-var _es_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./es.json */ 303, 1);
-/* harmony import */ var _fr_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fr.json */ 304);
-var _fr_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./fr.json */ 304, 1);
-/* harmony import */ var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./zh-Hans.json */ 305);
-var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hans.json */ 305, 1);
-/* harmony import */ var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zh-Hant.json */ 306);
-var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hant.json */ 306, 1);
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  en: _en_json__WEBPACK_IMPORTED_MODULE_0__,
-  es: _es_json__WEBPACK_IMPORTED_MODULE_1__,
-  fr: _fr_json__WEBPACK_IMPORTED_MODULE_2__,
-  'zh-Hans': _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__,
-  'zh-Hant': _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__
-});
-
-
-/***/ }),
-
-/***/ 302:
-/*!***********************************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/en.json ***!
-  \***********************************************************************/
-/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"Success\",\"uniCloud.component.update.success\":\"Success\",\"uniCloud.component.remove.showModal.title\":\"Tips\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
-
-/***/ }),
-
-/***/ 303:
-/*!***********************************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/es.json ***!
-  \***********************************************************************/
-/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
-
-/***/ }),
-
-/***/ 304:
-/*!***********************************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/fr.json ***!
-  \***********************************************************************/
-/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
-
-/***/ }),
-
-/***/ 305:
-/*!****************************************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hans.json ***!
-  \****************************************************************************/
-/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
-
-/***/ }),
-
-/***/ 306:
-/*!****************************************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hant.json ***!
-  \****************************************************************************/
-/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否刪除數據\"}");
-
-/***/ }),
-
 /***/ 31:
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
@@ -18447,66 +18357,6 @@ module.exports = _possibleConstructorReturn, module.exports.__esModule = true, m
 
 /***/ }),
 
-/***/ 333:
-/*!****************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
-  \****************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 334));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 335));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 336));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 334:
-/*!***************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
-  \***************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
-
-/***/ }),
-
-/***/ 335:
-/*!********************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
-  \********************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
-
-/***/ }),
-
-/***/ 336:
-/*!********************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
-  \********************************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
-
-/***/ }),
-
 /***/ 34:
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
@@ -18565,6 +18415,85 @@ module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
+/***/ 355:
+/*!************************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/index.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _en_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./en.json */ 356);
+var _en_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./en.json */ 356, 1);
+/* harmony import */ var _es_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./es.json */ 357);
+var _es_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./es.json */ 357, 1);
+/* harmony import */ var _fr_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./fr.json */ 358);
+var _fr_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./fr.json */ 358, 1);
+/* harmony import */ var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./zh-Hans.json */ 359);
+var _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hans.json */ 359, 1);
+/* harmony import */ var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./zh-Hant.json */ 360);
+var _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./zh-Hant.json */ 360, 1);
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  en: _en_json__WEBPACK_IMPORTED_MODULE_0__,
+  es: _es_json__WEBPACK_IMPORTED_MODULE_1__,
+  fr: _fr_json__WEBPACK_IMPORTED_MODULE_2__,
+  'zh-Hans': _zh_Hans_json__WEBPACK_IMPORTED_MODULE_3__,
+  'zh-Hant': _zh_Hant_json__WEBPACK_IMPORTED_MODULE_4__
+});
+
+
+/***/ }),
+
+/***/ 356:
+/*!***********************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/en.json ***!
+  \***********************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"Success\",\"uniCloud.component.update.success\":\"Success\",\"uniCloud.component.remove.showModal.title\":\"Tips\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
+/***/ 357:
+/*!***********************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/es.json ***!
+  \***********************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
+/***/ 358:
+/*!***********************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/fr.json ***!
+  \***********************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
+/***/ 359:
+/*!****************************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hans.json ***!
+  \****************************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否删除该数据\"}");
+
+/***/ }),
+
 /***/ 36:
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/isNativeFunction.js ***!
@@ -18576,6 +18505,17 @@ function _isNativeFunction(fn) {
   return Function.toString.call(fn).indexOf("[native code]") !== -1;
 }
 module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 360:
+/*!****************************************************************************!*\
+  !*** ./node_modules/@dcloudio/uni-cli-shared/components/i18n/zh-Hant.json ***!
+  \****************************************************************************/
+/*! exports provided: uniCloud.component.add.success, uniCloud.component.update.success, uniCloud.component.remove.showModal.title, uniCloud.component.remove.showModal.content, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uniCloud.component.add.success\":\"新增成功\",\"uniCloud.component.update.success\":\"修改成功\",\"uniCloud.component.remove.showModal.title\":\"提示\",\"uniCloud.component.remove.showModal.content\":\"是否刪除數據\"}");
 
 /***/ }),
 
@@ -18595,7 +18535,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   "pages": [{
-    "path": "pages/grid/grid",
+    "path": "pages/index/index",
     "style": {
       "enablePullDownRefresh": true,
       "navigationStyle": "custom"
@@ -18608,6 +18548,10 @@ var _default = {
     "style": {
       "navigationBarTitleText": "搜索"
     }
+  }, {
+    "path": "pages/list/add"
+  }, {
+    "path": "pages/list/edit"
   }, {
     "path": "pages/list/detail",
     "style": {
@@ -18651,29 +18595,23 @@ var _default = {
       "enablePullDownRefresh": true
     }
   }, {
-    "path": "pages/opendb-news-articles/add",
-    "style": {
-      "navigationBarTitleText": "新增"
-    }
+    "path": "pages/articles/add"
   }, {
-    "path": "pages/opendb-news-articles/edit",
-    "style": {
-      "navigationBarTitleText": "编辑"
-    }
+    "path": "pages/articles/edit"
   }, {
-    "path": "pages/opendb-news-articles/list",
-    "style": {
-      "navigationBarTitleText": "列表"
-    }
+    "path": "pages/articles/list"
   }, {
-    "path": "pages/opendb-news-articles/detail",
-    "style": {
-      "navigationBarTitleText": "详情"
-    }
+    "path": "pages/articles/detail"
   }, {
     "path": "pages/game/game",
     "style": {
       "navigationBarTitleText": "Game"
+    }
+  }, {
+    "path": "pages/webview/webview",
+    "style": {
+      "navigationBarTitleText": "",
+      "enablePullDownRefresh": false
     }
   }],
   "subPackages": [{
@@ -18759,7 +18697,7 @@ var _default = {
   }],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-starter",
+    "navigationBarTitleText": "小猿赋能",
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#F8F8F8",
     "enablePullDownRefresh": false,
@@ -18782,7 +18720,7 @@ var _default = {
     "borderStyle": "black",
     "backgroundColor": "#FFFFFF",
     "list": [{
-      "pagePath": "pages/grid/grid",
+      "pagePath": "pages/index/index",
       "iconPath": "static/tabbar/list.png",
       "selectedIconPath": "static/tabbar/list_active.png",
       "text": "首页"
@@ -18792,9 +18730,9 @@ var _default = {
       "selectedIconPath": "static/tabbar/grid_active.png",
       "text": "题库"
     }, {
-      "pagePath": "pages/opendb-news-articles/list",
-      "iconPath": "static/tabbar/me.png",
-      "selectedIconPath": "static/tabbar/me_active.png",
+      "pagePath": "pages/articles/list",
+      "iconPath": "static/tabbar/atricles.png",
+      "selectedIconPath": "static/tabbar/atricles_active.png",
       "text": "文章"
     }, {
       "pagePath": "pages/ucenter/ucenter",
@@ -18813,7 +18751,44 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 372:
+/***/ 38:
+/*!************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/pages.json?{"type":"stat"} ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  "appid": "__UNI__BA410A4"
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 4:
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 415:
 /*!*****************************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-dateformat/components/uni-dateformat/date-format.js ***!
   \*****************************************************************************************************************************/
@@ -19031,7 +19006,151 @@ function friendlyDate(time, _ref) {
 
 /***/ }),
 
-/***/ 378:
+/***/ 42:
+/*!***************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/common/appInit.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uniCloud, uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
+var _uniStarterConfig = _interopRequireDefault(__webpack_require__(/*! @/uni-starter.config.js */ 43));
+//应用初始化页
+
+var db = uniCloud.database();
+function _default() {
+  return _ref.apply(this, arguments);
+}
+/**
+ * // 初始化appVersion
+ */
+function _ref() {
+  _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+    var debug, onDBError;
+    return _regenerator.default.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            onDBError = function _onDBError(_ref2) {
+              var code = _ref2.code,
+                message = _ref2.message;
+              console.log('onDBError', {
+                code: code,
+                message: message
+              });
+              // 处理错误
+              console.error(code, message);
+            };
+            debug = _uniStarterConfig.default.debug; // uniStarterConfig挂载到getApp().globalData.config
+            setTimeout(function () {
+              getApp({
+                allowDefault: true
+              }).globalData.config = _uniStarterConfig.default;
+            }, 1);
+
+            // 初始化appVersion（仅app生效）
+            initAppVersion();
+
+            //clientDB的错误提示
+
+            // 绑定clientDB错误事件
+            db.on('error', onDBError);
+
+            //拦截云对象请求
+            uniCloud.interceptObject({
+              invoke: function invoke(_ref3) {
+                return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+                  var objectName, methodName, params;
+                  return _regenerator.default.wrap(function _callee$(_context) {
+                    while (1) {
+                      switch (_context.prev = _context.next) {
+                        case 0:
+                          objectName = _ref3.objectName, methodName = _ref3.methodName, params = _ref3.params;
+                          if (!(objectName == "uni-id-co" && (methodName.includes('loginBy') || ['login', 'registerUser'].includes(methodName)))) {
+                            _context.next = 6;
+                            break;
+                          }
+                          console.log('执行登录相关云对象');
+                          _context.next = 5;
+                          return new Promise(function (callBack) {
+                            uni.getClipboardData({
+                              success: function success(res) {
+                                console.log('剪切板内容：' + res.data);
+                                if (res.data.slice(0, 18) == 'uniInvitationCode:') {
+                                  var uniInvitationCode = res.data.slice(18, 38);
+                                  console.log('当前用户是其他用户推荐下载的,推荐者的code是：' + uniInvitationCode);
+                                  // uni.showModal({
+                                  // 	content: '当前用户是其他用户推荐下载的,推荐者的code是：'+uniInvitationCode,
+                                  // 	showCancel: false
+                                  // });
+                                  callBack(uniInvitationCode);
+                                  //当前用户是其他用户推荐下载的。这里登记他的推荐者id 为当前用户的myInviteCode。判断如果是注册
+                                } else {
+                                  callBack();
+                                }
+                              },
+                              fail: function fail() {
+                                console.log('error--');
+                                callBack();
+                              },
+                              complete: function complete() {
+                                uni.hideToast();
+                              }
+                            });
+                          });
+                        case 5:
+                          params[0].inviteCode = _context.sent;
+                        case 6:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }
+                  }, _callee);
+                }))();
+              },
+              success: function success(e) {
+                console.log(e);
+              },
+              complete: function complete() {},
+              fail: function fail(e) {
+                console.error(e);
+                // if (debug) {
+                // 	uni.showModal({
+                // 		content: JSON.stringify(e),
+                // 		showCancel: false
+                // 	});
+                // }else{
+                // 	uni.showToast({
+                // 		title: '系统错误请稍后再试',
+                // 		icon:'error'
+                // 	});
+                // }
+              }
+            });
+          case 6:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _ref.apply(this, arguments);
+}
+function initAppVersion() {}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 27)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 421:
 /*!*************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/uni-load-state/i18n/index.js ***!
   \*************************************************************************************************/
@@ -19046,8 +19165,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 379));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 380));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 422));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 423));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default
@@ -19056,7 +19175,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 379:
+/***/ 422:
 /*!************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/uni-load-state/i18n/en.json ***!
   \************************************************************************************************/
@@ -19067,28 +19186,7 @@ module.exports = JSON.parse("{\"noData\":\"No Data\",\"noNetwork\":\"Network err
 
 /***/ }),
 
-/***/ 38:
-/*!************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/pages.json?{"type":"stat"} ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  "appid": "__UNI__BA410A4"
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 380:
+/***/ 423:
 /*!*****************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/uni-load-state/i18n/zh-Hans.json ***!
   \*****************************************************************************************************/
@@ -19099,7 +19197,193 @@ module.exports = JSON.parse("{\"noData\":\"暂无数据\",\"noNetwork\":\"网络
 
 /***/ }),
 
-/***/ 395:
+/***/ 43:
+/*!*******************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni-starter.config.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//这是应用的配置页面，App.vue挂载到getApp().globalData.config
+var _default = {
+  "h5": {
+    "url": "https://uni-starter.dcloud.net.cn",
+    //	前端网页托管的域名	
+    // 在h5端全局悬浮引导用户下载app的功能 更多自定义要求在/common/openApp.js中修改	
+    "openApp": {//如不需要本功能直接移除本节点即可	
+      // //点击悬浮下载栏后打开的网页链接
+      // "openUrl": '/#/pages/ucenter/invite/invite',
+      // //左侧显示的应用名称	
+      // "appname": 'uni-starter',
+      // //应用的图标	
+      // "logo": './static/logo.png',
+    }
+  },
+  "mp": {
+    "weixin": {
+      //微信小程序原始id，微信小程序分享时
+      "id": ""
+    }
+  },
+  //关于应用
+  "about": {
+    //应用名称
+    "appName": "uni-starter",
+    //应用logo
+    "logo": "/static/logo.png",
+    //公司名称
+    "company": "北京xx网络技术有限公司",
+    //口号
+    "slogan": "云端一体应用快速开发模版",
+    //应用的链接，用于分享到第三方平台和生成关于我们页的二维码
+    "download": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8",
+    //version
+    "version": "1.0.0" //用于非app端显示，app端自动获取
+  },
+
+  "download": {
+    //用于生成二合一下载页面
+    "ios": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8",
+    "android": "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-97fca9f2-41f6-449f-a35e-3f135d4c3875/6d754387-a6c3-48ed-8ad2-e8f39b40fc01.apk"
+  },
+  //用于打开应用市场评分界面
+  "marketId": {
+    "ios": "",
+    "android": ""
+  },
+  //配置多语言国际化。i18n为英文单词 internationalization的首末字符i和n，18为中间的字符数 是“国际化”的简称
+  "i18n": {
+    "enable": false //默认关闭，国际化。如果你想使用国际化相关功能，请改为true
+  }
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 44:
+/*!***************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/common/openApp.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+var _uniStarterConfig = _interopRequireDefault(__webpack_require__(/*! ../uni-starter.config.js */ 43));
+/*
+	创建在h5端全局悬浮引导用户下载app的功能，
+	如不需要本功能直接移除配置文件uni-starter.config.js下的h5/openApp即可
+*/
+
+var CONFIG_OPEN = _uniStarterConfig.default.h5.openApp || {};
+// 仅H5端添加"打开APP"
+function _default() {}
+
+/***/ }),
+
+/***/ 445:
+/*!****************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 446));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 447));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 448));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 446:
+/*!***************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
+  \***************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+
+/***/ }),
+
+/***/ 447:
+/*!********************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
+  \********************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
+
+/***/ }),
+
+/***/ 448:
+/*!********************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \********************************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
+
+/***/ }),
+
+/***/ 45:
+/*!********************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/pages/uni-agree/utils/uni-agree.js ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+function _default() {
+  console.log(uni.getSystemInfoSync().platform);
+  var userprotocol = uni.getStorageSync('userprotocol');
+  console.log('userprotocol', userprotocol);
+  if (!userprotocol) {
+    uni.navigateTo({
+      url: '/pages/uni-agree/uni-agree',
+      animationType: "none"
+    });
+  }
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 456:
 /*!*************************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
   \*************************************************************************************************************************/
@@ -19603,303 +19887,10 @@ exports.fontData = fontData;
 
 /***/ }),
 
-/***/ 4:
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 410:
-/*!*********************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-sign-in/utils/ad.js ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 32));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 33));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 34));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
-var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-// ad.js
-var ADType = {
-  RewardedVideo: "RewardedVideo",
-  FullScreenVideo: "FullScreenVideo"
-};
-var AdHelper = /*#__PURE__*/function () {
-  function AdHelper() {
-    (0, _classCallCheck2.default)(this, AdHelper);
-    this._ads = {};
-  }
-  (0, _createClass2.default)(AdHelper, [{
-    key: "load",
-    value: function load(options, onload, onerror) {
-      var ops = this._fixOldOptions(options);
-      var adpid = ops.adpid;
-      if (!adpid || this.isBusy(adpid)) {
-        return;
-      }
-      this.get(ops).load(onload, onerror);
-    }
-  }, {
-    key: "show",
-    value: function show(options, onsuccess, onfail) {
-      var ops = this._fixOldOptions(options);
-      var adpid = ops.adpid;
-      if (!adpid) {
-        return;
-      }
-      uni.showLoading({
-        mask: true
-      });
-      var ad = this.get(ops);
-      ad.load(function () {
-        uni.hideLoading();
-        ad.show(function (e) {
-          onsuccess && onsuccess(e);
-        });
-      }, function (err) {
-        uni.hideLoading();
-        onfail && onfail(err);
-      });
-    }
-  }, {
-    key: "isBusy",
-    value: function isBusy(adpid) {
-      return this._ads[adpid] && this._ads[adpid].isLoading;
-    }
-  }, {
-    key: "get",
-    value: function get(options) {
-      var adpid = options.adpid,
-        _options$singleton = options.singleton,
-        singleton = _options$singleton === void 0 ? true : _options$singleton;
-      if (singleton === false) {
-        if (this._ads[adpid]) {
-          this._ads[adpid].destroy();
-          delete this._ads[adpid];
-        }
-      }
-      delete options.singleton;
-      if (!this._ads[adpid]) {
-        this._ads[adpid] = this._createAdInstance(options);
-      }
-      return this._ads[adpid];
-    }
-  }, {
-    key: "_createAdInstance",
-    value: function _createAdInstance(options) {
-      var adType = options.adType || ADType.RewardedVideo;
-      delete options.adType;
-      var ad = null;
-      if (adType === ADType.RewardedVideo) {
-        ad = new RewardedVideo(options);
-      } else if (adType === ADType.FullScreenVideo) {
-        ad = new FullScreenVideo(options);
-      }
-      return ad;
-    }
-  }, {
-    key: "_fixOldOptions",
-    value: function _fixOldOptions(options) {
-      return typeof options === "string" ? {
-        adpid: options
-      } : options;
-    }
-  }]);
-  return AdHelper;
-}();
-var EXPIRED_TIME = 1000 * 60 * 30;
-var ProviderType = {
-  CSJ: 'csj',
-  GDT: 'gdt'
-};
-var RETRY_COUNT = 1;
-var AdBase = /*#__PURE__*/function () {
-  function AdBase(adInstance) {
-    var _this = this;
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    (0, _classCallCheck2.default)(this, AdBase);
-    this._isLoad = false;
-    this._isLoading = false;
-    this._lastLoadTime = 0;
-    this._lastError = null;
-    this._retryCount = 0;
-    this._loadCallback = null;
-    this._closeCallback = null;
-    this._errorCallback = null;
-    var ad = this._ad = adInstance;
-    ad.onLoad(function (e) {
-      _this._isLoading = false;
-      _this._isLoad = true;
-      _this._lastLoadTime = Date.now();
-      _this.onLoad();
-    });
-    ad.onClose(function (e) {
-      _this._isLoad = false;
-      _this.onClose(e);
-    });
-    ad.onVerify && ad.onVerify(function (e) {
-      // e.isValid
-    });
-    ad.onError(function (_ref) {
-      var code = _ref.code,
-        message = _ref.message;
-      _this._isLoading = false;
-      var data = {
-        code: code,
-        errMsg: message
-      };
-      if (code === -5008) {
-        _this._loadAd();
-        return;
-      }
-      if (_this._retryCount < RETRY_COUNT) {
-        _this._retryCount += 1;
-        _this._loadAd();
-        return;
-      }
-      _this._lastError = data;
-      _this.onError(data);
-    });
-  }
-  (0, _createClass2.default)(AdBase, [{
-    key: "isExpired",
-    get: function get() {
-      return this._lastLoadTime !== 0 && Math.abs(Date.now() - this._lastLoadTime) > EXPIRED_TIME;
-    }
-  }, {
-    key: "isLoading",
-    get: function get() {
-      return this._isLoading;
-    }
-  }, {
-    key: "getProvider",
-    value: function getProvider() {
-      return this._ad.getProvider();
-    }
-  }, {
-    key: "load",
-    value: function load(onload, onerror) {
-      this._loadCallback = onload;
-      this._errorCallback = onerror;
-      if (this._isLoading) {
-        return;
-      }
-      if (this._isLoad) {
-        this.onLoad();
-        return;
-      }
-      this._retryCount = 0;
-      this._loadAd();
-    }
-  }, {
-    key: "show",
-    value: function show(onclose) {
-      this._closeCallback = onclose;
-      if (this._isLoading || !this._isLoad) {
-        return;
-      }
-      if (this._lastError !== null) {
-        this.onError(this._lastError);
-        return;
-      }
-      var provider = this.getProvider();
-      if (provider === ProviderType.CSJ && this.isExpired) {
-        this._loadAd();
-        return;
-      }
-      this._ad.show();
-    }
-  }, {
-    key: "onLoad",
-    value: function onLoad(e) {
-      if (this._loadCallback != null) {
-        this._loadCallback();
-      }
-    }
-  }, {
-    key: "onClose",
-    value: function onClose(e) {
-      if (this._closeCallback != null) {
-        this._closeCallback({
-          isEnded: e.isEnded
-        });
-      }
-    }
-  }, {
-    key: "onError",
-    value: function onError(e) {
-      if (this._errorCallback != null) {
-        this._errorCallback(e);
-      }
-    }
-  }, {
-    key: "destroy",
-    value: function destroy() {
-      this._ad.destroy();
-    }
-  }, {
-    key: "_loadAd",
-    value: function _loadAd() {
-      this._isLoad = false;
-      this._isLoading = true;
-      this._lastError = null;
-      this._ad.load();
-    }
-  }]);
-  return AdBase;
-}();
-var RewardedVideo = /*#__PURE__*/function (_AdBase) {
-  (0, _inherits2.default)(RewardedVideo, _AdBase);
-  var _super = _createSuper(RewardedVideo);
-  function RewardedVideo() {
-    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2.default)(this, RewardedVideo);
-    return _super.call(this, plus.ad.createRewardedVideoAd(options), options);
-  }
-  return (0, _createClass2.default)(RewardedVideo);
-}(AdBase);
-var FullScreenVideo = /*#__PURE__*/function (_AdBase2) {
-  (0, _inherits2.default)(FullScreenVideo, _AdBase2);
-  var _super2 = _createSuper(FullScreenVideo);
-  function FullScreenVideo() {
-    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2.default)(this, FullScreenVideo);
-    return _super2.call(this, plus.ad.createFullScreenVideoAd(options), options);
-  }
-  return (0, _createClass2.default)(FullScreenVideo);
-}(AdBase);
-var _default = new AdHelper();
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-
-/***/ 42:
-/*!***************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/common/appInit.js ***!
-  \***************************************************************************/
+/***/ 46:
+/*!******************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/init.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19913,19 +19904,22 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = _default;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
-var _uniStarterConfig = _interopRequireDefault(__webpack_require__(/*! @/uni-starter.config.js */ 43));
-//应用初始化页
+var _config = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-id-pages/config.js */ 47));
+// 导入配置
 
-var db = uniCloud.database();
+// uni-id的云对象
+var uniIdCo = uniCloud.importObject('uni-id-co', {
+  customUI: true
+});
+// 用户配置的登录方式、是否打开调试模式
+var loginTypes = _config.default.loginTypes,
+  debug = _config.default.debug;
 function _default() {
   return _ref.apply(this, arguments);
 }
-/**
- * // 初始化appVersion
- */
 function _ref() {
   _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-    var debug, onDBError;
+    var _yield$uniIdCo$getSup, supportedLoginType, data, list, db, onDBError;
     return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -19933,100 +19927,91 @@ function _ref() {
             onDBError = function _onDBError(_ref2) {
               var code = _ref2.code,
                 message = _ref2.message;
-              console.log('onDBError', {
-                code: code,
-                message: message
-              });
-              // 处理错误
-              console.error(code, message);
-            };
-            debug = _uniStarterConfig.default.debug; // uniStarterConfig挂载到getApp().globalData.config
-            setTimeout(function () {
-              getApp({
-                allowDefault: true
-              }).globalData.config = _uniStarterConfig.default;
-            }, 1);
-
-            // 初始化appVersion（仅app生效）
-            initAppVersion();
-
-            //clientDB的错误提示
-
-            // 绑定clientDB错误事件
-            db.on('error', onDBError);
-
-            //拦截云对象请求
-            uniCloud.interceptObject({
-              invoke: function invoke(_ref3) {
-                return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-                  var objectName, methodName, params;
-                  return _regenerator.default.wrap(function _callee$(_context) {
-                    while (1) {
-                      switch (_context.prev = _context.next) {
-                        case 0:
-                          objectName = _ref3.objectName, methodName = _ref3.methodName, params = _ref3.params;
-                          if (!(objectName == "uni-id-co" && (methodName.includes('loginBy') || ['login', 'registerUser'].includes(methodName)))) {
-                            _context.next = 6;
-                            break;
-                          }
-                          console.log('执行登录相关云对象');
-                          _context.next = 5;
-                          return new Promise(function (callBack) {
-                            uni.getClipboardData({
-                              success: function success(res) {
-                                console.log('剪切板内容：' + res.data);
-                                if (res.data.slice(0, 18) == 'uniInvitationCode:') {
-                                  var uniInvitationCode = res.data.slice(18, 38);
-                                  console.log('当前用户是其他用户推荐下载的,推荐者的code是：' + uniInvitationCode);
-                                  // uni.showModal({
-                                  // 	content: '当前用户是其他用户推荐下载的,推荐者的code是：'+uniInvitationCode,
-                                  // 	showCancel: false
-                                  // });
-                                  callBack(uniInvitationCode);
-                                  //当前用户是其他用户推荐下载的。这里登记他的推荐者id 为当前用户的myInviteCode。判断如果是注册
-                                } else {
-                                  callBack();
-                                }
-                              },
-                              fail: function fail() {
-                                console.log('error--');
-                                callBack();
-                              },
-                              complete: function complete() {
-                                uni.hideToast();
-                              }
-                            });
-                          });
-                        case 5:
-                          params[0].inviteCode = _context.sent;
-                        case 6:
-                        case "end":
-                          return _context.stop();
-                      }
-                    }
-                  }, _callee);
-                }))();
-              },
-              success: function success(e) {
-                console.log(e);
-              },
-              complete: function complete() {},
-              fail: function fail(e) {
-                console.error(e);
-                // if (debug) {
-                // 	uni.showModal({
-                // 		content: JSON.stringify(e),
-                // 		showCancel: false
-                // 	});
-                // }else{
-                // 	uni.showToast({
-                // 		title: '系统错误请稍后再试',
-                // 		icon:'error'
-                // 	});
-                // }
-              }
+            } // console.error('onDBError', {code,message});
+            ;
+            if (!debug) {
+              _context2.next = 10;
+              break;
+            }
+            _context2.next = 4;
+            return uniIdCo.getSupportedLoginType();
+          case 4:
+            _yield$uniIdCo$getSup = _context2.sent;
+            supportedLoginType = _yield$uniIdCo$getSup.supportedLoginType;
+            console.log('supportedLoginType: ' + JSON.stringify(supportedLoginType));
+            // 登录方式，服务端和客户端的映射关系
+            data = {
+              smsCode: 'mobile-code',
+              univerify: 'univerify',
+              username: 'username-password',
+              weixin: 'weixin',
+              qq: 'qq',
+              xiaomi: 'xiaomi',
+              sinaweibo: 'sinaweibo',
+              taobao: 'taobao',
+              facebook: 'facebook',
+              google: 'google',
+              alipay: 'alipay',
+              apple: 'apple',
+              weixinMobile: 'weixin'
+            }; // 遍历客户端配置的登录方式，与服务端比对。并在错误时抛出错误提示
+            list = loginTypes.filter(function (type) {
+              return !supportedLoginType.includes(data[type]);
             });
-          case 6:
+            if (list.length) {
+              console.error("\u9519\u8BEF\uFF1A\u524D\u7AEF\u542F\u7528\u7684\u767B\u5F55\u65B9\u5F0F:".concat(list.join('，'), ";\u6CA1\u6709\u5728\u670D\u52A1\u7AEF\u5B8C\u6210\u914D\u7F6E\u3002\u914D\u7F6E\u6587\u4EF6\u8DEF\u5F84\uFF1A\"/uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json\""));
+            }
+          case 10:
+            // 3. 绑定clientDB错误事件
+            // clientDB对象
+            db = uniCloud.database();
+            db.on('error', onDBError);
+            // clientDB的错误提示
+
+            // 解绑clientDB错误事件
+            // db.off('error', onDBError)
+
+            // 4. 同步客户端push_clientid至device表
+            if (uniCloud.onRefreshToken) {
+              uniCloud.onRefreshToken(function () {
+                // console.log('onRefreshToken');
+                if (uni.getPushClientId) {
+                  uni.getPushClientId({
+                    success: function () {
+                      var _success = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {
+                        var pushClientId, res;
+                        return _regenerator.default.wrap(function _callee$(_context) {
+                          while (1) {
+                            switch (_context.prev = _context.next) {
+                              case 0:
+                                // console.log(e)
+                                pushClientId = e.cid; // console.log(pushClientId);
+                                _context.next = 3;
+                                return uniIdCo.setPushCid({
+                                  pushClientId: pushClientId
+                                });
+                              case 3:
+                                res = _context.sent;
+                              case 4:
+                              case "end":
+                                return _context.stop();
+                            }
+                          }
+                        }, _callee);
+                      }));
+                      function success(_x) {
+                        return _success.apply(this, arguments);
+                      }
+                      return success;
+                    }(),
+                    fail: function fail(e) {
+                      // console.log(e)
+                    }
+                  });
+                }
+              });
+            }
+          case 13:
           case "end":
             return _context2.stop();
         }
@@ -20035,12 +20020,11 @@ function _ref() {
   }));
   return _ref.apply(this, arguments);
 }
-function initAppVersion() {}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 27)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 
-/***/ 423:
+/***/ 464:
 /*!****************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-forms/components/uni-forms/validate.js ***!
   \****************************************************************************************************************/
@@ -20732,7 +20716,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 424:
+/***/ 465:
 /*!*************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-forms/components/uni-forms/utils.js ***!
   \*************************************************************************************************************/
@@ -21068,10 +21052,10 @@ exports.isEqual = isEqual;
 
 /***/ }),
 
-/***/ 43:
-/*!*******************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni-starter.config.js ***!
-  \*******************************************************************************/
+/***/ 47:
+/*!********************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/config.js ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21082,90 +21066,70 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//这是应用的配置页面，App.vue挂载到getApp().globalData.config
 var _default = {
-  "h5": {
-    "url": "https://uni-starter.dcloud.net.cn",
-    //	前端网页托管的域名	
-    // 在h5端全局悬浮引导用户下载app的功能 更多自定义要求在/common/openApp.js中修改	
-    "openApp": {//如不需要本功能直接移除本节点即可	
-      // //点击悬浮下载栏后打开的网页链接
-      // "openUrl": '/#/pages/ucenter/invite/invite',
-      // //左侧显示的应用名称	
-      // "appname": 'uni-starter',
-      // //应用的图标	
-      // "logo": './static/logo.png',
-    }
-  },
-  "mp": {
-    "weixin": {
-      //微信小程序原始id，微信小程序分享时
-      "id": ""
-    }
-  },
-  //关于应用
-  "about": {
-    //应用名称
-    "appName": "uni-starter",
-    //应用logo
-    "logo": "/static/logo.png",
-    //公司名称
-    "company": "北京xx网络技术有限公司",
-    //口号
-    "slogan": "云端一体应用快速开发模版",
-    //应用的链接，用于分享到第三方平台和生成关于我们页的二维码
-    "download": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8",
-    //version
-    "version": "1.0.0" //用于非app端显示，app端自动获取
-  },
+  // 调试模式
+  debug: false,
+  /*
+  登录类型 未列举到的或运行环境不支持的，将被自动隐藏。
+  如果需要在不同平台有不同的配置，直接用条件编译即可
+  */
+  isAdmin: false,
+  // 区分管理端与用户端
+  loginTypes: [
+  // "qq",
+  // "xiaomi",
+  // "sinaweibo",
+  // "taobao",
+  // "facebook",
+  // "google",
+  // "alipay",
+  // "douyin",
 
-  "download": {
-    //用于生成二合一下载页面
-    "ios": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8",
-    "android": "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-97fca9f2-41f6-449f-a35e-3f135d4c3875/6d754387-a6c3-48ed-8ad2-e8f39b40fc01.apk"
+  'weixin', 'username', 'smsCode'],
+  // 政策协议
+  agreements: {
+    serviceUrl: 'https://xxx',
+    // 用户服务协议链接
+    privacyUrl: 'https://xxx',
+    // 隐私政策条款链接
+    // 哪些场景下显示，1.注册（包括登录并注册，如：微信登录、苹果登录、短信验证码登录）、2.登录（如：用户名密码登录）
+    scope: ['register', 'login', 'realNameVerify']
   },
-  //用于打开应用市场评分界面
-  "marketId": {
-    "ios": "",
-    "android": ""
+  // 提供各类服务接入（如微信登录服务）的应用id
+  appid: {
+    weixin: {
+      // 微信公众号的appid，来源:登录微信公众号（https://mp.weixin.qq.com）-> 设置与开发 -> 基本配置 -> 公众号开发信息 -> AppID
+      h5: 'xxxxxx',
+      // 微信开放平台的appid，来源:登录微信开放平台（https://open.weixin.qq.com） -> 管理中心 -> 网站应用 -> 选择对应的应用名称，点击查看 -> AppID
+      web: 'xxxxxx'
+    }
   },
-  //配置多语言国际化。i18n为英文单词 internationalization的首末字符i和n，18为中间的字符数 是“国际化”的简称
-  "i18n": {
-    "enable": false //默认关闭，国际化。如果你想使用国际化相关功能，请改为true
-  }
+  /**
+  * 密码强度
+  * super（超强：密码必须包含大小写字母、数字和特殊符号，长度范围：8-16位之间）
+  * strong（强: 密密码必须包含字母、数字和特殊符号，长度范围：8-16位之间）
+  * medium (中：密码必须为字母、数字和特殊符号任意两种的组合，长度范围：8-16位之间)
+  * weak（弱：密码必须包含字母和数字，长度范围：6-16位之间）
+  * 为空或false则不验证密码强度
+  */
+  passwordStrength: 'medium',
+  /**
+  * 登录后允许用户设置密码（只针对未设置密码得用户）
+  * 开启此功能将 setPasswordAfterLogin 设置为 true 即可
+  * "setPasswordAfterLogin": false
+  *
+  * 如果允许用户跳过设置密码 将 allowSkip 设置为 true
+  * "setPasswordAfterLogin": {
+  *   "allowSkip": true
+  * }
+  * */
+  setPasswordAfterLogin: false
 };
 exports.default = _default;
 
 /***/ }),
 
-/***/ 44:
-/*!***************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/common/openApp.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _default;
-var _uniStarterConfig = _interopRequireDefault(__webpack_require__(/*! ../uni-starter.config.js */ 43));
-/*
-	创建在h5端全局悬浮引导用户下载app的功能，
-	如不需要本功能直接移除配置文件uni-starter.config.js下的h5/openApp即可
-*/
-
-var CONFIG_OPEN = _uniStarterConfig.default.h5.openApp || {};
-// 仅H5端添加"打开APP"
-function _default() {}
-
-/***/ }),
-
-/***/ 446:
+/***/ 487:
 /*!***************************************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-data-picker/components/uni-data-pickerview/uni-data-picker.js ***!
   \***************************************************************************************************************************************/
@@ -21835,597 +21799,6 @@ exports.default = _default2;
 
 /***/ }),
 
-/***/ 45:
-/*!********************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/pages/uni-agree/utils/uni-agree.js ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _default;
-function _default() {
-  console.log(uni.getSystemInfoSync().platform);
-  var userprotocol = uni.getStorageSync('userprotocol');
-  console.log('userprotocol', userprotocol);
-  if (!userprotocol) {
-    uni.navigateTo({
-      url: '/pages/uni-agree/uni-agree',
-      animationType: "none"
-    });
-  }
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-
-/***/ 46:
-/*!******************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/init.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uniCloud, uni) {
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _default;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
-var _config = _interopRequireDefault(__webpack_require__(/*! @/uni_modules/uni-id-pages/config.js */ 47));
-// 导入配置
-
-// uni-id的云对象
-var uniIdCo = uniCloud.importObject('uni-id-co', {
-  customUI: true
-});
-// 用户配置的登录方式、是否打开调试模式
-var loginTypes = _config.default.loginTypes,
-  debug = _config.default.debug;
-function _default() {
-  return _ref.apply(this, arguments);
-}
-function _ref() {
-  _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-    var _yield$uniIdCo$getSup, supportedLoginType, data, list, db, onDBError;
-    return _regenerator.default.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            onDBError = function _onDBError(_ref2) {
-              var code = _ref2.code,
-                message = _ref2.message;
-            } // console.error('onDBError', {code,message});
-            ;
-            if (!debug) {
-              _context2.next = 10;
-              break;
-            }
-            _context2.next = 4;
-            return uniIdCo.getSupportedLoginType();
-          case 4:
-            _yield$uniIdCo$getSup = _context2.sent;
-            supportedLoginType = _yield$uniIdCo$getSup.supportedLoginType;
-            console.log('supportedLoginType: ' + JSON.stringify(supportedLoginType));
-            // 登录方式，服务端和客户端的映射关系
-            data = {
-              smsCode: 'mobile-code',
-              univerify: 'univerify',
-              username: 'username-password',
-              weixin: 'weixin',
-              qq: 'qq',
-              xiaomi: 'xiaomi',
-              sinaweibo: 'sinaweibo',
-              taobao: 'taobao',
-              facebook: 'facebook',
-              google: 'google',
-              alipay: 'alipay',
-              apple: 'apple',
-              weixinMobile: 'weixin'
-            }; // 遍历客户端配置的登录方式，与服务端比对。并在错误时抛出错误提示
-            list = loginTypes.filter(function (type) {
-              return !supportedLoginType.includes(data[type]);
-            });
-            if (list.length) {
-              console.error("\u9519\u8BEF\uFF1A\u524D\u7AEF\u542F\u7528\u7684\u767B\u5F55\u65B9\u5F0F:".concat(list.join('，'), ";\u6CA1\u6709\u5728\u670D\u52A1\u7AEF\u5B8C\u6210\u914D\u7F6E\u3002\u914D\u7F6E\u6587\u4EF6\u8DEF\u5F84\uFF1A\"/uni_modules/uni-config-center/uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json\""));
-            }
-          case 10:
-            // 3. 绑定clientDB错误事件
-            // clientDB对象
-            db = uniCloud.database();
-            db.on('error', onDBError);
-            // clientDB的错误提示
-
-            // 解绑clientDB错误事件
-            // db.off('error', onDBError)
-
-            // 4. 同步客户端push_clientid至device表
-            if (uniCloud.onRefreshToken) {
-              uniCloud.onRefreshToken(function () {
-                // console.log('onRefreshToken');
-                if (uni.getPushClientId) {
-                  uni.getPushClientId({
-                    success: function () {
-                      var _success = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {
-                        var pushClientId, res;
-                        return _regenerator.default.wrap(function _callee$(_context) {
-                          while (1) {
-                            switch (_context.prev = _context.next) {
-                              case 0:
-                                // console.log(e)
-                                pushClientId = e.cid; // console.log(pushClientId);
-                                _context.next = 3;
-                                return uniIdCo.setPushCid({
-                                  pushClientId: pushClientId
-                                });
-                              case 3:
-                                res = _context.sent;
-                              case 4:
-                              case "end":
-                                return _context.stop();
-                            }
-                          }
-                        }, _callee);
-                      }));
-                      function success(_x) {
-                        return _success.apply(this, arguments);
-                      }
-                      return success;
-                    }(),
-                    fail: function fail(e) {
-                      // console.log(e)
-                    }
-                  });
-                }
-              });
-            }
-          case 13:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-  return _ref.apply(this, arguments);
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 27)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-
-/***/ 47:
-/*!********************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-id-pages/config.js ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  // 调试模式
-  debug: false,
-  /*
-  登录类型 未列举到的或运行环境不支持的，将被自动隐藏。
-  如果需要在不同平台有不同的配置，直接用条件编译即可
-  */
-  isAdmin: false,
-  // 区分管理端与用户端
-  loginTypes: [
-  // "qq",
-  // "xiaomi",
-  // "sinaweibo",
-  // "taobao",
-  // "facebook",
-  // "google",
-  // "alipay",
-  // "douyin",
-
-  'weixin', 'username', 'smsCode'],
-  // 政策协议
-  agreements: {
-    serviceUrl: 'https://xxx',
-    // 用户服务协议链接
-    privacyUrl: 'https://xxx',
-    // 隐私政策条款链接
-    // 哪些场景下显示，1.注册（包括登录并注册，如：微信登录、苹果登录、短信验证码登录）、2.登录（如：用户名密码登录）
-    scope: ['register', 'login', 'realNameVerify']
-  },
-  // 提供各类服务接入（如微信登录服务）的应用id
-  appid: {
-    weixin: {
-      // 微信公众号的appid，来源:登录微信公众号（https://mp.weixin.qq.com）-> 设置与开发 -> 基本配置 -> 公众号开发信息 -> AppID
-      h5: 'xxxxxx',
-      // 微信开放平台的appid，来源:登录微信开放平台（https://open.weixin.qq.com） -> 管理中心 -> 网站应用 -> 选择对应的应用名称，点击查看 -> AppID
-      web: 'xxxxxx'
-    }
-  },
-  /**
-  * 密码强度
-  * super（超强：密码必须包含大小写字母、数字和特殊符号，长度范围：8-16位之间）
-  * strong（强: 密密码必须包含字母、数字和特殊符号，长度范围：8-16位之间）
-  * medium (中：密码必须为字母、数字和特殊符号任意两种的组合，长度范围：8-16位之间)
-  * weak（弱：密码必须包含字母和数字，长度范围：6-16位之间）
-  * 为空或false则不验证密码强度
-  */
-  passwordStrength: 'medium',
-  /**
-  * 登录后允许用户设置密码（只针对未设置密码得用户）
-  * 开启此功能将 setPasswordAfterLogin 设置为 true 即可
-  * "setPasswordAfterLogin": false
-  *
-  * 如果允许用户跳过设置密码 将 allowSkip 设置为 true
-  * "setPasswordAfterLogin": {
-  *   "allowSkip": true
-  * }
-  * */
-  setPasswordAfterLogin: false
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 473:
-/*!**************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
-  \**************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 474));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 475));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 476));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 474:
-/*!*************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
-  \*************************************************************************************************************************/
-/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show more\",\"uni-load-more.contentrefresh\":\"loading...\",\"uni-load-more.contentnomore\":\"No more data\"}");
-
-/***/ }),
-
-/***/ 475:
-/*!******************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
-  \******************************************************************************************************************************/
-/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多\",\"uni-load-more.contentrefresh\":\"正在加载...\",\"uni-load-more.contentnomore\":\"没有更多数据了\"}");
-
-/***/ }),
-
-/***/ 476:
-/*!******************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
-  \******************************************************************************************************************************/
-/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
-
-/***/ }),
-
-/***/ 491:
-/*!************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/utils/index.js ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.indexToCharCode = indexToCharCode;
-exports.throttle = throttle;
-function throttle(fun, delay) {
-  var last, timer;
-  return function () {
-    var self = this,
-      args = arguments,
-      now = +new Date();
-    if (last && now < last + delay) {
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        last = now;
-        fun.apply(self, args);
-      }, delay);
-    } else {
-      last = now;
-      fun.apply(self, args);
-    }
-  };
-}
-function indexToCharCode(idx) {
-  return String.fromCharCode(idx + 65);
-}
-
-/***/ }),
-
-/***/ 499:
-/*!**********************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/u-parse/libs/html2json.js ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(wx) {
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _wxDiscode = _interopRequireDefault(__webpack_require__(/*! ./wxDiscode */ 500));
-var _htmlparser = _interopRequireDefault(__webpack_require__(/*! ./htmlparser */ 501));
-/**
- * html2Json 改造来自: https://github.com/Jxck/html2json
- *
- *
- * author: Di (微信小程序开发工程师)
- * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
- *               垂直微信小程序开发交流社区
- *
- * github地址: https://github.com/icindy/wxParse
- *
- * for: 微信小程序富文本解析
- * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
- */
-
-function makeMap(str) {
-  var obj = {};
-  var items = str.split(',');
-  for (var i = 0; i < items.length; i += 1) {
-    obj[items[i]] = true;
-  }
-  return obj;
-}
-
-// Block Elements - HTML 5
-var block = makeMap('br,code,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video');
-
-// Inline Elements - HTML 5
-var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
-
-// Elements that you can, intentionally, leave open
-// (and which close themselves)
-var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
-function removeDOCTYPE(html) {
-  var isDocument = /<body.*>([^]*)<\/body>/.test(html);
-  return isDocument ? RegExp.$1 : html;
-}
-function trimHtml(html) {
-  return html.replace(/<!--.*?-->/gi, '').replace(/\/\*.*?\*\//gi, '').replace(/[ ]+</gi, '<').replace(/<script[^]*<\/script>/gi, '').replace(/<style[^]*<\/style>/gi, '');
-}
-function getScreenInfo() {
-  var screen = {};
-  wx.getSystemInfo({
-    success: function success(res) {
-      screen.width = res.windowWidth;
-      screen.height = res.windowHeight;
-    }
-  });
-  return screen;
-}
-function html2json(html, customHandler, imageProp, host) {
-  // 处理字符串
-  html = removeDOCTYPE(html);
-  html = trimHtml(html);
-  html = _wxDiscode.default.strDiscode(html);
-  // 生成node节点
-  var bufArray = [];
-  var results = {
-    nodes: [],
-    imageUrls: []
-  };
-  var screen = getScreenInfo();
-  function Node(tag) {
-    this.node = 'element';
-    this.tag = tag;
-    this.$screen = screen;
-  }
-  (0, _htmlparser.default)(html, {
-    start: function start(tag, attrs, unary) {
-      // node for this element
-      var node = new Node(tag);
-      if (bufArray.length !== 0) {
-        var parent = bufArray[0];
-        if (parent.nodes === undefined) {
-          parent.nodes = [];
-        }
-      }
-      if (block[tag]) {
-        node.tagType = 'block';
-      } else if (inline[tag]) {
-        node.tagType = 'inline';
-      } else if (closeSelf[tag]) {
-        node.tagType = 'closeSelf';
-      }
-      node.attr = attrs.reduce(function (pre, attr) {
-        var name = attr.name;
-        var value = attr.value;
-        if (name === 'class') {
-          node.classStr = value;
-        }
-        // has multi attibutes
-        // make it array of attribute
-        if (name === 'style') {
-          node.styleStr = value;
-        }
-        if (value.match(/ /)) {
-          value = value.split(' ');
-        }
-
-        // if attr already exists
-        // merge it
-        if (pre[name]) {
-          if (Array.isArray(pre[name])) {
-            // already array, push to last
-            pre[name].push(value);
-          } else {
-            // single value, make it array
-            pre[name] = [pre[name], value];
-          }
-        } else {
-          // not exist, put it
-          pre[name] = value;
-        }
-        return pre;
-      }, {});
-
-      // 优化样式相关属性
-      if (node.classStr) {
-        node.classStr += " ".concat(node.tag);
-      } else {
-        node.classStr = node.tag;
-      }
-      if (node.tagType === 'inline') {
-        node.classStr += ' inline';
-      }
-
-      // 对img添加额外数据
-      if (node.tag === 'img') {
-        var imgUrl = node.attr.src;
-        imgUrl = _wxDiscode.default.urlToHttpUrl(imgUrl, imageProp.domain);
-        Object.assign(node.attr, imageProp, {
-          src: imgUrl || ''
-        });
-        if (imgUrl) {
-          results.imageUrls.push(imgUrl);
-        }
-      }
-
-      // 处理a标签属性
-      if (node.tag === 'a') {
-        node.attr.href = node.attr.href || '';
-      }
-
-      // 处理font标签样式属性
-      if (node.tag === 'font') {
-        var fontSize = ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', '-webkit-xxx-large'];
-        var styleAttrs = {
-          color: 'color',
-          face: 'font-family',
-          size: 'font-size'
-        };
-        if (!node.styleStr) node.styleStr = '';
-        Object.keys(styleAttrs).forEach(function (key) {
-          if (node.attr[key]) {
-            var value = key === 'size' ? fontSize[node.attr[key] - 1] : node.attr[key];
-            node.styleStr += "".concat(styleAttrs[key], ": ").concat(value, ";");
-          }
-        });
-      }
-
-      // 临时记录source资源
-      if (node.tag === 'source') {
-        results.source = node.attr.src;
-      }
-      if (customHandler.start) {
-        customHandler.start(node, results);
-      }
-      if (unary) {
-        // if this tag doesn't have end tag
-        // like <img src="hoge.png"/>
-        // add to parents
-        var _parent = bufArray[0] || results;
-        if (_parent.nodes === undefined) {
-          _parent.nodes = [];
-        }
-        _parent.nodes.push(node);
-      } else {
-        bufArray.unshift(node);
-      }
-    },
-    end: function end(tag) {
-      // merge into parent tag
-      var node = bufArray.shift();
-      if (node.tag !== tag) {
-        console.error('invalid state: mismatch end tag');
-      }
-
-      // 当有缓存source资源时于于video补上src资源
-      if (node.tag === 'video' && results.source) {
-        node.attr.src = results.source;
-        delete results.source;
-      }
-      if (customHandler.end) {
-        customHandler.end(node, results);
-      }
-      if (bufArray.length === 0) {
-        results.nodes.push(node);
-      } else {
-        var parent = bufArray[0];
-        if (!parent.nodes) {
-          parent.nodes = [];
-        }
-        parent.nodes.push(node);
-      }
-    },
-    chars: function chars(text) {
-      if (!text.trim()) return;
-      var node = {
-        node: 'text',
-        text: text
-      };
-      if (customHandler.chars) {
-        customHandler.chars(node, results);
-      }
-      if (bufArray.length === 0) {
-        results.nodes.push(node);
-      } else {
-        var parent = bufArray[0];
-        if (parent.nodes === undefined) {
-          parent.nodes = [];
-        }
-        parent.nodes.push(node);
-      }
-    }
-  });
-  return results;
-}
-var _default = html2json;
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
-
-/***/ }),
-
 /***/ 5:
 /*!**************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
@@ -22576,745 +21949,512 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 500:
-/*!**********************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/u-parse/libs/wxDiscode.js ***!
-  \**********************************************************************************************/
+/***/ 502:
+/*!**************************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
+  \**************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-// HTML 支持的数学符号
-function strNumDiscode(str) {
-  str = str.replace(/&forall;/g, '∀');
-  str = str.replace(/&part;/g, '∂');
-  str = str.replace(/&exist;/g, '∃');
-  str = str.replace(/&empty;/g, '∅');
-  str = str.replace(/&nabla;/g, '∇');
-  str = str.replace(/&isin;/g, '∈');
-  str = str.replace(/&notin;/g, '∉');
-  str = str.replace(/&ni;/g, '∋');
-  str = str.replace(/&prod;/g, '∏');
-  str = str.replace(/&sum;/g, '∑');
-  str = str.replace(/&minus;/g, '−');
-  str = str.replace(/&lowast;/g, '∗');
-  str = str.replace(/&radic;/g, '√');
-  str = str.replace(/&prop;/g, '∝');
-  str = str.replace(/&infin;/g, '∞');
-  str = str.replace(/&ang;/g, '∠');
-  str = str.replace(/&and;/g, '∧');
-  str = str.replace(/&or;/g, '∨');
-  str = str.replace(/&cap;/g, '∩');
-  str = str.replace(/&cup;/g, '∪');
-  str = str.replace(/&int;/g, '∫');
-  str = str.replace(/&there4;/g, '∴');
-  str = str.replace(/&sim;/g, '∼');
-  str = str.replace(/&cong;/g, '≅');
-  str = str.replace(/&asymp;/g, '≈');
-  str = str.replace(/&ne;/g, '≠');
-  str = str.replace(/&le;/g, '≤');
-  str = str.replace(/&ge;/g, '≥');
-  str = str.replace(/&sub;/g, '⊂');
-  str = str.replace(/&sup;/g, '⊃');
-  str = str.replace(/&nsub;/g, '⊄');
-  str = str.replace(/&sube;/g, '⊆');
-  str = str.replace(/&supe;/g, '⊇');
-  str = str.replace(/&oplus;/g, '⊕');
-  str = str.replace(/&otimes;/g, '⊗');
-  str = str.replace(/&perp;/g, '⊥');
-  str = str.replace(/&sdot;/g, '⋅');
-  return str;
-}
-
-// HTML 支持的希腊字母
-function strGreeceDiscode(str) {
-  str = str.replace(/&Alpha;/g, 'Α');
-  str = str.replace(/&Beta;/g, 'Β');
-  str = str.replace(/&Gamma;/g, 'Γ');
-  str = str.replace(/&Delta;/g, 'Δ');
-  str = str.replace(/&Epsilon;/g, 'Ε');
-  str = str.replace(/&Zeta;/g, 'Ζ');
-  str = str.replace(/&Eta;/g, 'Η');
-  str = str.replace(/&Theta;/g, 'Θ');
-  str = str.replace(/&Iota;/g, 'Ι');
-  str = str.replace(/&Kappa;/g, 'Κ');
-  str = str.replace(/&Lambda;/g, 'Λ');
-  str = str.replace(/&Mu;/g, 'Μ');
-  str = str.replace(/&Nu;/g, 'Ν');
-  str = str.replace(/&Xi;/g, 'Ν');
-  str = str.replace(/&Omicron;/g, 'Ο');
-  str = str.replace(/&Pi;/g, 'Π');
-  str = str.replace(/&Rho;/g, 'Ρ');
-  str = str.replace(/&Sigma;/g, 'Σ');
-  str = str.replace(/&Tau;/g, 'Τ');
-  str = str.replace(/&Upsilon;/g, 'Υ');
-  str = str.replace(/&Phi;/g, 'Φ');
-  str = str.replace(/&Chi;/g, 'Χ');
-  str = str.replace(/&Psi;/g, 'Ψ');
-  str = str.replace(/&Omega;/g, 'Ω');
-  str = str.replace(/&alpha;/g, 'α');
-  str = str.replace(/&beta;/g, 'β');
-  str = str.replace(/&gamma;/g, 'γ');
-  str = str.replace(/&delta;/g, 'δ');
-  str = str.replace(/&epsilon;/g, 'ε');
-  str = str.replace(/&zeta;/g, 'ζ');
-  str = str.replace(/&eta;/g, 'η');
-  str = str.replace(/&theta;/g, 'θ');
-  str = str.replace(/&iota;/g, 'ι');
-  str = str.replace(/&kappa;/g, 'κ');
-  str = str.replace(/&lambda;/g, 'λ');
-  str = str.replace(/&mu;/g, 'μ');
-  str = str.replace(/&nu;/g, 'ν');
-  str = str.replace(/&xi;/g, 'ξ');
-  str = str.replace(/&omicron;/g, 'ο');
-  str = str.replace(/&pi;/g, 'π');
-  str = str.replace(/&rho;/g, 'ρ');
-  str = str.replace(/&sigmaf;/g, 'ς');
-  str = str.replace(/&sigma;/g, 'σ');
-  str = str.replace(/&tau;/g, 'τ');
-  str = str.replace(/&upsilon;/g, 'υ');
-  str = str.replace(/&phi;/g, 'φ');
-  str = str.replace(/&chi;/g, 'χ');
-  str = str.replace(/&psi;/g, 'ψ');
-  str = str.replace(/&omega;/g, 'ω');
-  str = str.replace(/&thetasym;/g, 'ϑ');
-  str = str.replace(/&upsih;/g, 'ϒ');
-  str = str.replace(/&piv;/g, 'ϖ');
-  str = str.replace(/&middot;/g, '·');
-  return str;
-}
-function strcharacterDiscode(str) {
-  // 加入常用解析
-  str = str.replace(/&nbsp;/g, ' ');
-  str = str.replace(/&ensp;/g, ' ');
-  str = str.replace(/&emsp;/g, '　');
-  str = str.replace(/&quot;/g, "'");
-  str = str.replace(/&amp;/g, '&');
-  str = str.replace(/&lt;/g, '<');
-  str = str.replace(/&gt;/g, '>');
-  str = str.replace(/&#8226;/g, '•');
-  return str;
-}
-
-// HTML 支持的其他实体
-function strOtherDiscode(str) {
-  str = str.replace(/&OElig;/g, 'Œ');
-  str = str.replace(/&oelig;/g, 'œ');
-  str = str.replace(/&Scaron;/g, 'Š');
-  str = str.replace(/&scaron;/g, 'š');
-  str = str.replace(/&Yuml;/g, 'Ÿ');
-  str = str.replace(/&fnof;/g, 'ƒ');
-  str = str.replace(/&circ;/g, 'ˆ');
-  str = str.replace(/&tilde;/g, '˜');
-  str = str.replace(/&ensp;/g, '');
-  str = str.replace(/&emsp;/g, '');
-  str = str.replace(/&thinsp;/g, '');
-  str = str.replace(/&zwnj;/g, '');
-  str = str.replace(/&zwj;/g, '');
-  str = str.replace(/&lrm;/g, '');
-  str = str.replace(/&rlm;/g, '');
-  str = str.replace(/&ndash;/g, '–');
-  str = str.replace(/&mdash;/g, '—');
-  str = str.replace(/&lsquo;/g, '‘');
-  str = str.replace(/&rsquo;/g, '’');
-  str = str.replace(/&sbquo;/g, '‚');
-  str = str.replace(/&ldquo;/g, '“');
-  str = str.replace(/&rdquo;/g, '”');
-  str = str.replace(/&bdquo;/g, '„');
-  str = str.replace(/&dagger;/g, '†');
-  str = str.replace(/&Dagger;/g, '‡');
-  str = str.replace(/&bull;/g, '•');
-  str = str.replace(/&hellip;/g, '…');
-  str = str.replace(/&permil;/g, '‰');
-  str = str.replace(/&prime;/g, '′');
-  str = str.replace(/&Prime;/g, '″');
-  str = str.replace(/&lsaquo;/g, '‹');
-  str = str.replace(/&rsaquo;/g, '›');
-  str = str.replace(/&oline;/g, '‾');
-  str = str.replace(/&euro;/g, '€');
-  str = str.replace(/&trade;/g, '™');
-  str = str.replace(/&larr;/g, '←');
-  str = str.replace(/&uarr;/g, '↑');
-  str = str.replace(/&rarr;/g, '→');
-  str = str.replace(/&darr;/g, '↓');
-  str = str.replace(/&harr;/g, '↔');
-  str = str.replace(/&crarr;/g, '↵');
-  str = str.replace(/&lceil;/g, '⌈');
-  str = str.replace(/&rceil;/g, '⌉');
-  str = str.replace(/&lfloor;/g, '⌊');
-  str = str.replace(/&rfloor;/g, '⌋');
-  str = str.replace(/&loz;/g, '◊');
-  str = str.replace(/&spades;/g, '♠');
-  str = str.replace(/&clubs;/g, '♣');
-  str = str.replace(/&hearts;/g, '♥');
-  str = str.replace(/&diams;/g, '♦');
-  str = str.replace(/&#39;/g, "'");
-  return str;
-}
-function strDiscode(str) {
-  str = strNumDiscode(str);
-  str = strGreeceDiscode(str);
-  str = strcharacterDiscode(str);
-  str = strOtherDiscode(str);
-  return str;
-}
-function urlToHttpUrl(url, domain) {
-  if (/^\/\//.test(url)) {
-    return "https:".concat(url);
-  } else if (/^\//.test(url)) {
-    return "https://".concat(domain).concat(url);
-  }
-  return url;
-}
-var _default = {
-  strDiscode: strDiscode,
-  urlToHttpUrl: urlToHttpUrl
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 501:
-/*!***********************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/u-parse/libs/htmlparser.js ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-/**
- *
- * htmlParser改造自: https://github.com/blowsie/Pure-JavaScript-HTML5-Parser
- *
- * author: Di (微信小程序开发工程师)
- * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
- *               垂直微信小程序开发交流社区
- *
- * github地址: https://github.com/icindy/wxParse
- *
- * for: 微信小程序富文本解析
- * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
- */
-// Regular Expressions for parsing tags and attributes
-
-var startTag = /^<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z0-9_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/;
-var endTag = /^<\/([-A-Za-z0-9_]+)[^>]*>/;
-var attr = /([a-zA-Z0-9_:][-a-zA-Z0-9_:.]*)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g;
-function makeMap(str) {
-  var obj = {};
-  var items = str.split(',');
-  for (var i = 0; i < items.length; i += 1) {
-    obj[items[i]] = true;
-  }
-  return obj;
-}
-
-// Empty Elements - HTML 5
-var empty = makeMap('area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr');
-
-// Block Elements - HTML 5
-var block = makeMap('address,code,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video');
-
-// Inline Elements - HTML 5
-var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
-
-// Elements that you can, intentionally, leave open
-// (and which close themselves)
-var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
-
-// Attributes that have their values filled in disabled="disabled"
-var fillAttrs = makeMap('checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected');
-function HTMLParser(html, handler) {
-  var index;
-  var chars;
-  var match;
-  var last = html;
-  var stack = [];
-  stack.last = function () {
-    return stack[stack.length - 1];
-  };
-  function parseEndTag(tag, tagName) {
-    // If no tag name is provided, clean shop
-    var pos;
-    if (!tagName) {
-      pos = 0;
-    } else {
-      // Find the closest opened tag of the same type
-      tagName = tagName.toLowerCase();
-      for (pos = stack.length - 1; pos >= 0; pos -= 1) {
-        if (stack[pos] === tagName) break;
-      }
-    }
-    if (pos >= 0) {
-      // Close all the open elements, up the stack
-      for (var i = stack.length - 1; i >= pos; i -= 1) {
-        if (handler.end) handler.end(stack[i]);
-      }
-
-      // Remove the open elements from the stack
-      stack.length = pos;
-    }
-  }
-  function parseStartTag(tag, tagName, rest, unary) {
-    tagName = tagName.toLowerCase();
-    if (block[tagName]) {
-      while (stack.last() && inline[stack.last()]) {
-        parseEndTag('', stack.last());
-      }
-    }
-    if (closeSelf[tagName] && stack.last() === tagName) {
-      parseEndTag('', tagName);
-    }
-    unary = empty[tagName] || !!unary;
-    if (!unary) stack.push(tagName);
-    if (handler.start) {
-      var attrs = [];
-      rest.replace(attr, function genAttr(matches, name) {
-        var value = arguments[2] || arguments[3] || arguments[4] || (fillAttrs[name] ? name : '');
-        attrs.push({
-          name: name,
-          value: value,
-          escaped: value.replace(/(^|[^\\])"/g, '$1\\"') // "
-        });
-      });
-
-      if (handler.start) {
-        handler.start(tagName, attrs, unary);
-      }
-    }
-  }
-  while (html) {
-    chars = true;
-    if (html.indexOf('</') === 0) {
-      match = html.match(endTag);
-      if (match) {
-        html = html.substring(match[0].length);
-        match[0].replace(endTag, parseEndTag);
-        chars = false;
-      }
-
-      // start tag
-    } else if (html.indexOf('<') === 0) {
-      match = html.match(startTag);
-      if (match) {
-        html = html.substring(match[0].length);
-        match[0].replace(startTag, parseStartTag);
-        chars = false;
-      }
-    }
-    if (chars) {
-      index = html.indexOf('<');
-      var text = '';
-      while (index === 0) {
-        text += '<';
-        html = html.substring(1);
-        index = html.indexOf('<');
-      }
-      text += index < 0 ? html : html.substring(0, index);
-      html = index < 0 ? '' : html.substring(index);
-      if (handler.chars) handler.chars(text);
-    }
-    if (html === last) throw new Error("Parse Error: ".concat(html));
-    last = html;
-  }
-
-  // Clean up any remaining tags
-  parseEndTag();
-}
-var _default = HTMLParser;
-exports.default = _default;
-
-/***/ }),
-
-/***/ 507:
-/*!******************************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-file-picker/components/uni-file-picker/choose-and-upload-file.js ***!
-  \******************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni, wx, uniCloud) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.chooseAndUploadFile = chooseAndUploadFile;
-exports.uploadCloudFiles = uploadCloudFiles;
-var ERR_MSG_OK = 'chooseAndUploadFile:ok';
-var ERR_MSG_FAIL = 'chooseAndUploadFile:fail';
-function chooseImage(opts) {
-  var count = opts.count,
-    _opts$sizeType = opts.sizeType,
-    sizeType = _opts$sizeType === void 0 ? ['original', 'compressed'] : _opts$sizeType,
-    sourceType = opts.sourceType,
-    extension = opts.extension;
-  return new Promise(function (resolve, reject) {
-    uni.chooseImage({
-      count: count,
-      sizeType: sizeType,
-      sourceType: sourceType,
-      extension: extension,
-      success: function success(res) {
-        resolve(normalizeChooseAndUploadFileRes(res, 'image'));
-      },
-      fail: function fail(res) {
-        reject({
-          errMsg: res.errMsg.replace('chooseImage:fail', ERR_MSG_FAIL)
-        });
-      }
-    });
-  });
-}
-function chooseVideo(opts) {
-  var camera = opts.camera,
-    compressed = opts.compressed,
-    maxDuration = opts.maxDuration,
-    sourceType = opts.sourceType,
-    extension = opts.extension;
-  return new Promise(function (resolve, reject) {
-    uni.chooseVideo({
-      camera: camera,
-      compressed: compressed,
-      maxDuration: maxDuration,
-      sourceType: sourceType,
-      extension: extension,
-      success: function success(res) {
-        var tempFilePath = res.tempFilePath,
-          duration = res.duration,
-          size = res.size,
-          height = res.height,
-          width = res.width;
-        resolve(normalizeChooseAndUploadFileRes({
-          errMsg: 'chooseVideo:ok',
-          tempFilePaths: [tempFilePath],
-          tempFiles: [{
-            name: res.tempFile && res.tempFile.name || '',
-            path: tempFilePath,
-            size: size,
-            type: res.tempFile && res.tempFile.type || '',
-            width: width,
-            height: height,
-            duration: duration,
-            fileType: 'video',
-            cloudPath: ''
-          }]
-        }, 'video'));
-      },
-      fail: function fail(res) {
-        reject({
-          errMsg: res.errMsg.replace('chooseVideo:fail', ERR_MSG_FAIL)
-        });
-      }
-    });
-  });
-}
-function chooseAll(opts) {
-  var count = opts.count,
-    extension = opts.extension;
-  return new Promise(function (resolve, reject) {
-    var chooseFile = uni.chooseFile;
-    if (typeof wx !== 'undefined' && typeof wx.chooseMessageFile === 'function') {
-      chooseFile = wx.chooseMessageFile;
-    }
-    if (typeof chooseFile !== 'function') {
-      return reject({
-        errMsg: ERR_MSG_FAIL + ' 请指定 type 类型，该平台仅支持选择 image 或 video。'
-      });
-    }
-    chooseFile({
-      type: 'all',
-      count: count,
-      extension: extension,
-      success: function success(res) {
-        resolve(normalizeChooseAndUploadFileRes(res));
-      },
-      fail: function fail(res) {
-        reject({
-          errMsg: res.errMsg.replace('chooseFile:fail', ERR_MSG_FAIL)
-        });
-      }
-    });
-  });
-}
-function normalizeChooseAndUploadFileRes(res, fileType) {
-  res.tempFiles.forEach(function (item, index) {
-    if (!item.name) {
-      item.name = item.path.substring(item.path.lastIndexOf('/') + 1);
-    }
-    if (fileType) {
-      item.fileType = fileType;
-    }
-    item.cloudPath = Date.now() + '_' + index + item.name.substring(item.name.lastIndexOf('.'));
-  });
-  if (!res.tempFilePaths) {
-    res.tempFilePaths = res.tempFiles.map(function (file) {
-      return file.path;
-    });
-  }
-  return res;
-}
-function uploadCloudFiles(files) {
-  var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
-  var _onUploadProgress = arguments.length > 2 ? arguments[2] : undefined;
-  files = JSON.parse(JSON.stringify(files));
-  var len = files.length;
-  var count = 0;
-  var self = this;
-  return new Promise(function (resolve) {
-    while (count < max) {
-      next();
-    }
-    function next() {
-      var cur = count++;
-      if (cur >= len) {
-        !files.find(function (item) {
-          return !item.url && !item.errMsg;
-        }) && resolve(files);
-        return;
-      }
-      var fileItem = files[cur];
-      var index = self.files.findIndex(function (v) {
-        return v.uuid === fileItem.uuid;
-      });
-      fileItem.url = '';
-      delete fileItem.errMsg;
-      uniCloud.uploadFile({
-        filePath: fileItem.path,
-        cloudPath: fileItem.cloudPath,
-        fileType: fileItem.fileType,
-        onUploadProgress: function onUploadProgress(res) {
-          res.index = index;
-          _onUploadProgress && _onUploadProgress(res);
-        }
-      }).then(function (res) {
-        fileItem.url = res.fileID;
-        fileItem.index = index;
-        if (cur < len) {
-          next();
-        }
-      }).catch(function (res) {
-        fileItem.errMsg = res.errMsg || res.message;
-        fileItem.index = index;
-        if (cur < len) {
-          next();
-        }
-      });
-    }
-  });
-}
-function uploadFiles(choosePromise, _ref) {
-  var onChooseFile = _ref.onChooseFile,
-    onUploadProgress = _ref.onUploadProgress;
-  return choosePromise.then(function (res) {
-    if (onChooseFile) {
-      var customChooseRes = onChooseFile(res);
-      if (typeof customChooseRes !== 'undefined') {
-        return Promise.resolve(customChooseRes).then(function (chooseRes) {
-          return typeof chooseRes === 'undefined' ? res : chooseRes;
-        });
-      }
-    }
-    return res;
-  }).then(function (res) {
-    if (res === false) {
-      return {
-        errMsg: ERR_MSG_OK,
-        tempFilePaths: [],
-        tempFiles: []
-      };
-    }
-    return res;
-  });
-}
-function chooseAndUploadFile() {
-  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-    type: 'all'
-  };
-  if (opts.type === 'image') {
-    return uploadFiles(chooseImage(opts), opts);
-  } else if (opts.type === 'video') {
-    return uploadFiles(chooseVideo(opts), opts);
-  }
-  return uploadFiles(chooseAll(opts), opts);
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 27)["default"]))
-
-/***/ }),
-
-/***/ 508:
-/*!*************************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-file-picker/components/uni-file-picker/utils.js ***!
-  \*************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.get_files_and_is_max = exports.get_file_info = exports.get_file_ext = exports.get_file_data = exports.get_extname = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
-/**
- * 获取文件名和后缀
- * @param {String} name
- */
-var get_file_ext = function get_file_ext(name) {
-  var last_len = name.lastIndexOf('.');
-  var len = name.length;
-  return {
-    name: name.substring(0, last_len),
-    ext: name.substring(last_len + 1, len)
-  };
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 503));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 504));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 505));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
 };
+exports.default = _default;
 
-/**
- * 获取扩展名
- * @param {Array} fileExtname
- */
-exports.get_file_ext = get_file_ext;
-var get_extname = function get_extname(fileExtname) {
-  if (!Array.isArray(fileExtname)) {
-    var extname = fileExtname.replace(/(\[|\])/g, '');
-    return extname.split(',');
-  } else {
-    return fileExtname;
-  }
-  return [];
-};
+/***/ }),
 
-/**
- * 获取文件和检测是否可选
- */
-exports.get_extname = get_extname;
-var get_files_and_is_max = function get_files_and_is_max(res, _extname) {
-  var filePaths = [];
-  var files = [];
-  if (!_extname || _extname.length === 0) {
-    return {
-      filePaths: filePaths,
-      files: files
-    };
+/***/ 503:
+/*!*************************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
+  \*************************************************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.SUN, uni-calender.confirm, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\",\"uni-datetime-picker.selectTime\":\"select time\",\"uni-datetime-picker.selectDateTime\":\"select date and time\",\"uni-datetime-picker.startDate\":\"start date\",\"uni-datetime-picker.endDate\":\"end date\",\"uni-datetime-picker.startTime\":\"start time\",\"uni-datetime-picker.endTime\":\"end time\",\"uni-datetime-picker.ok\":\"ok\",\"uni-datetime-picker.clear\":\"clear\",\"uni-datetime-picker.cancel\":\"cancel\",\"uni-datetime-picker.year\":\"-\",\"uni-datetime-picker.month\":\"\",\"uni-calender.MON\":\"MON\",\"uni-calender.TUE\":\"TUE\",\"uni-calender.WED\":\"WED\",\"uni-calender.THU\":\"THU\",\"uni-calender.FRI\":\"FRI\",\"uni-calender.SAT\":\"SAT\",\"uni-calender.SUN\":\"SUN\",\"uni-calender.confirm\":\"confirm\"}");
+
+/***/ }),
+
+/***/ 504:
+/*!******************************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.confirm, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\",\"uni-datetime-picker.selectTime\":\"选择时间\",\"uni-datetime-picker.selectDateTime\":\"选择日期时间\",\"uni-datetime-picker.startDate\":\"开始日期\",\"uni-datetime-picker.endDate\":\"结束日期\",\"uni-datetime-picker.startTime\":\"开始时间\",\"uni-datetime-picker.endTime\":\"结束时间\",\"uni-datetime-picker.ok\":\"确定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"确认\"}");
+
+/***/ }),
+
+/***/ 505:
+/*!******************************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
+  \******************************************************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-datetime-picker.year, uni-datetime-picker.month, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.confirm, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\",\"uni-datetime-picker.selectTime\":\"選擇時間\",\"uni-datetime-picker.selectDateTime\":\"選擇日期時間\",\"uni-datetime-picker.startDate\":\"開始日期\",\"uni-datetime-picker.endDate\":\"結束日期\",\"uni-datetime-picker.startTime\":\"開始时间\",\"uni-datetime-picker.endTime\":\"結束时间\",\"uni-datetime-picker.ok\":\"確定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-datetime-picker.year\":\"年\",\"uni-datetime-picker.month\":\"月\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\",\"uni-calender.confirm\":\"確認\"}");
+
+/***/ }),
+
+/***/ 506:
+/*!********************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Calendar = void 0;
+exports.addZero = addZero;
+exports.checkDate = checkDate;
+exports.dateCompare = dateCompare;
+exports.fixIosDateFormat = fixIosDateFormat;
+exports.getDate = getDate;
+exports.getDateTime = getDateTime;
+exports.getDefaultSecond = getDefaultSecond;
+exports.getTime = getTime;
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
+var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
+var Calendar = /*#__PURE__*/function () {
+  function Calendar() {
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      selected = _ref.selected,
+      startDate = _ref.startDate,
+      endDate = _ref.endDate,
+      range = _ref.range;
+    (0, _classCallCheck2.default)(this, Calendar);
+    // 当前日期
+    this.date = this.getDateObj(new Date()); // 当前初入日期
+    // 打点信息
+    this.selected = selected || [];
+    // 起始时间
+    this.startDate = startDate;
+    // 终止时间
+    this.endDate = endDate;
+    // 是否范围选择
+    this.range = range;
+    // 多选状态
+    this.cleanMultipleStatus();
+    // 每周日期
+    this.weeks = {};
+    this.lastHover = false;
   }
-  res.tempFiles.forEach(function (v) {
-    var fileFullName = get_file_ext(v.name);
-    var extname = fileFullName.ext.toLowerCase();
-    if (_extname.indexOf(extname) !== -1) {
-      files.push(v);
-      filePaths.push(v.path);
+  /**
+   * 设置日期
+   * @param {Object} date
+   */
+  (0, _createClass2.default)(Calendar, [{
+    key: "setDate",
+    value: function setDate(date) {
+      var selectDate = this.getDateObj(date);
+      this.getWeeks(selectDate.fullDate);
     }
-  });
-  if (files.length !== res.tempFiles.length) {
-    uni.showToast({
-      title: "\u5F53\u524D\u9009\u62E9\u4E86".concat(res.tempFiles.length, "\u4E2A\u6587\u4EF6 \uFF0C").concat(res.tempFiles.length - files.length, " \u4E2A\u6587\u4EF6\u683C\u5F0F\u4E0D\u6B63\u786E"),
-      icon: 'none',
-      duration: 5000
-    });
-  }
-  return {
-    filePaths: filePaths,
-    files: files
-  };
-};
 
-/**
- * 获取图片信息
- * @param {Object} filepath
- */
-exports.get_files_and_is_max = get_files_and_is_max;
-var get_file_info = function get_file_info(filepath) {
-  return new Promise(function (resolve, reject) {
-    uni.getImageInfo({
-      src: filepath,
-      success: function success(res) {
-        resolve(res);
-      },
-      fail: function fail(err) {
-        reject(err);
+    /**
+     * 清理多选状态
+     */
+  }, {
+    key: "cleanMultipleStatus",
+    value: function cleanMultipleStatus() {
+      this.multipleStatus = {
+        before: '',
+        after: '',
+        data: []
+      };
+    }
+  }, {
+    key: "setStartDate",
+    value: function setStartDate(startDate) {
+      this.startDate = startDate;
+    }
+  }, {
+    key: "setEndDate",
+    value: function setEndDate(endDate) {
+      this.endDate = endDate;
+    }
+  }, {
+    key: "getPreMonthObj",
+    value: function getPreMonthObj(date) {
+      date = fixIosDateFormat(date);
+      date = new Date(date);
+      var oldMonth = date.getMonth();
+      date.setMonth(oldMonth - 1);
+      var newMonth = date.getMonth();
+      if (oldMonth !== 0 && newMonth - oldMonth === 0) {
+        date.setMonth(newMonth - 1);
       }
-    });
-  });
-};
-/**
- * 获取封装数据
- */
-exports.get_file_info = get_file_info;
-var get_file_data = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(files) {
-    var type,
-      fileFullName,
-      extname,
-      filedata,
-      imageinfo,
-      _args = arguments;
-    return _regenerator.default.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            type = _args.length > 1 && _args[1] !== undefined ? _args[1] : 'image';
-            // 最终需要上传数据库的数据
-            fileFullName = get_file_ext(files.name);
-            extname = fileFullName.ext.toLowerCase();
-            filedata = {
-              name: files.name,
-              uuid: files.uuid,
-              extname: extname || '',
-              cloudPath: files.cloudPath,
-              fileType: files.fileType,
-              url: files.path || files.path,
-              size: files.size,
-              //单位是字节
-              image: {},
-              path: files.path,
-              video: {}
-            };
-            if (!(type === 'image')) {
-              _context.next = 14;
-              break;
-            }
-            _context.next = 7;
-            return get_file_info(files.path);
-          case 7:
-            imageinfo = _context.sent;
-            delete filedata.video;
-            filedata.image.width = imageinfo.width;
-            filedata.image.height = imageinfo.height;
-            filedata.image.location = imageinfo.path;
-            _context.next = 15;
-            break;
-          case 14:
-            delete filedata.image;
-          case 15:
-            return _context.abrupt("return", filedata);
-          case 16:
-          case "end":
-            return _context.stop();
+      return this.getDateObj(date);
+    }
+  }, {
+    key: "getNextMonthObj",
+    value: function getNextMonthObj(date) {
+      date = fixIosDateFormat(date);
+      date = new Date(date);
+      var oldMonth = date.getMonth();
+      date.setMonth(oldMonth + 1);
+      var newMonth = date.getMonth();
+      if (newMonth - oldMonth > 1) {
+        date.setMonth(newMonth - 1);
+      }
+      return this.getDateObj(date);
+    }
+
+    /**
+     * 获取指定格式Date对象
+     */
+  }, {
+    key: "getDateObj",
+    value: function getDateObj(date) {
+      date = fixIosDateFormat(date);
+      date = new Date(date);
+      return {
+        fullDate: getDate(date),
+        year: date.getFullYear(),
+        month: addZero(date.getMonth() + 1),
+        date: addZero(date.getDate()),
+        day: date.getDay()
+      };
+    }
+
+    /**
+     * 获取上一个月日期集合
+     */
+  }, {
+    key: "getPreMonthDays",
+    value: function getPreMonthDays(amount, dateObj) {
+      var result = [];
+      for (var i = amount - 1; i >= 0; i--) {
+        var month = dateObj.month - 1;
+        result.push({
+          date: new Date(dateObj.year, month, -i).getDate(),
+          month: month,
+          disable: true
+        });
+      }
+      return result;
+    }
+    /**
+     * 获取本月日期集合
+     */
+  }, {
+    key: "getCurrentMonthDays",
+    value: function getCurrentMonthDays(amount, dateObj) {
+      var _this = this;
+      var result = [];
+      var fullDate = this.date.fullDate;
+      var _loop = function _loop(i) {
+        var currentDate = "".concat(dateObj.year, "-").concat(dateObj.month, "-").concat(addZero(i));
+        var isToday = fullDate === currentDate;
+        // 获取打点信息
+        var info = _this.selected && _this.selected.find(function (item) {
+          if (_this.dateEqual(currentDate, item.date)) {
+            return item;
+          }
+        });
+
+        // 日期禁用
+        var disableBefore = true;
+        var disableAfter = true;
+        if (_this.startDate) {
+          disableBefore = dateCompare(_this.startDate, currentDate);
+        }
+        if (_this.endDate) {
+          disableAfter = dateCompare(currentDate, _this.endDate);
+        }
+        var multiples = _this.multipleStatus.data;
+        var multiplesStatus = -1;
+        if (_this.range && multiples) {
+          multiplesStatus = multiples.findIndex(function (item) {
+            return _this.dateEqual(item, currentDate);
+          });
+        }
+        var checked = multiplesStatus !== -1;
+        result.push({
+          fullDate: currentDate,
+          year: dateObj.year,
+          date: i,
+          multiple: _this.range ? checked : false,
+          beforeMultiple: _this.isLogicBefore(currentDate, _this.multipleStatus.before, _this.multipleStatus.after),
+          afterMultiple: _this.isLogicAfter(currentDate, _this.multipleStatus.before, _this.multipleStatus.after),
+          month: dateObj.month,
+          disable: _this.startDate && !dateCompare(_this.startDate, currentDate) || _this.endDate && !dateCompare(currentDate, _this.endDate),
+          isToday: isToday,
+          userChecked: false,
+          extraInfo: info
+        });
+      };
+      for (var i = 1; i <= amount; i++) {
+        _loop(i);
+      }
+      return result;
+    }
+    /**
+     * 获取下一个月日期集合
+     */
+  }, {
+    key: "_getNextMonthDays",
+    value: function _getNextMonthDays(amount, dateObj) {
+      var result = [];
+      var month = dateObj.month + 1;
+      for (var i = 1; i <= amount; i++) {
+        result.push({
+          date: i,
+          month: month,
+          disable: true
+        });
+      }
+      return result;
+    }
+
+    /**
+     * 获取当前日期详情
+     * @param {Object} date
+     */
+  }, {
+    key: "getInfo",
+    value: function getInfo(date) {
+      var _this2 = this;
+      if (!date) {
+        date = new Date();
+      }
+      return this.calendar.find(function (item) {
+        return item.fullDate === _this2.getDateObj(date).fullDate;
+      });
+    }
+
+    /**
+     * 比较时间是否相等
+     */
+  }, {
+    key: "dateEqual",
+    value: function dateEqual(before, after) {
+      before = new Date(fixIosDateFormat(before));
+      after = new Date(fixIosDateFormat(after));
+      return before.valueOf() === after.valueOf();
+    }
+
+    /**
+     *  比较真实起始日期
+     */
+  }, {
+    key: "isLogicBefore",
+    value: function isLogicBefore(currentDate, before, after) {
+      var logicBefore = before;
+      if (before && after) {
+        logicBefore = dateCompare(before, after) ? before : after;
+      }
+      return this.dateEqual(logicBefore, currentDate);
+    }
+  }, {
+    key: "isLogicAfter",
+    value: function isLogicAfter(currentDate, before, after) {
+      var logicAfter = after;
+      if (before && after) {
+        logicAfter = dateCompare(before, after) ? after : before;
+      }
+      return this.dateEqual(logicAfter, currentDate);
+    }
+
+    /**
+     * 获取日期范围内所有日期
+     * @param {Object} begin
+     * @param {Object} end
+     */
+  }, {
+    key: "geDateAll",
+    value: function geDateAll(begin, end) {
+      var arr = [];
+      var ab = begin.split('-');
+      var ae = end.split('-');
+      var db = new Date();
+      db.setFullYear(ab[0], ab[1] - 1, ab[2]);
+      var de = new Date();
+      de.setFullYear(ae[0], ae[1] - 1, ae[2]);
+      var unixDb = db.getTime() - 24 * 60 * 60 * 1000;
+      var unixDe = de.getTime() - 24 * 60 * 60 * 1000;
+      for (var k = unixDb; k <= unixDe;) {
+        k = k + 24 * 60 * 60 * 1000;
+        arr.push(this.getDateObj(new Date(parseInt(k))).fullDate);
+      }
+      return arr;
+    }
+
+    /**
+     *  获取多选状态
+     */
+  }, {
+    key: "setMultiple",
+    value: function setMultiple(fullDate) {
+      if (!this.range) return;
+      var _this$multipleStatus = this.multipleStatus,
+        before = _this$multipleStatus.before,
+        after = _this$multipleStatus.after;
+      if (before && after) {
+        if (!this.lastHover) {
+          this.lastHover = true;
+          return;
+        }
+        this.multipleStatus.before = fullDate;
+        this.multipleStatus.after = '';
+        this.multipleStatus.data = [];
+        this.multipleStatus.fulldate = '';
+        this.lastHover = false;
+      } else {
+        if (!before) {
+          this.multipleStatus.before = fullDate;
+          this.multipleStatus.after = undefined;
+          this.lastHover = false;
+        } else {
+          this.multipleStatus.after = fullDate;
+          if (dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
+            this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
+          } else {
+            this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
+          }
+          this.lastHover = true;
         }
       }
-    }, _callee);
-  }));
-  return function get_file_data(_x) {
-    return _ref.apply(this, arguments);
-  };
+      this.getWeeks(fullDate);
+    }
+
+    /**
+     *  鼠标 hover 更新多选状态
+     */
+  }, {
+    key: "setHoverMultiple",
+    value: function setHoverMultiple(fullDate) {
+      //抖音小程序点击会触发hover事件，需要避免一下
+
+      if (!this.range || this.lastHover) return;
+      var before = this.multipleStatus.before;
+      if (!before) {
+        this.multipleStatus.before = fullDate;
+      } else {
+        this.multipleStatus.after = fullDate;
+        if (dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
+          this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
+        } else {
+          this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
+        }
+      }
+      this.getWeeks(fullDate);
+    }
+
+    /**
+     * 更新默认值多选状态
+     */
+  }, {
+    key: "setDefaultMultiple",
+    value: function setDefaultMultiple(before, after) {
+      this.multipleStatus.before = before;
+      this.multipleStatus.after = after;
+      if (before && after) {
+        if (dateCompare(before, after)) {
+          this.multipleStatus.data = this.geDateAll(before, after);
+          this.getWeeks(after);
+        } else {
+          this.multipleStatus.data = this.geDateAll(after, before);
+          this.getWeeks(before);
+        }
+      }
+    }
+
+    /**
+     * 获取每周数据
+     * @param {Object} dateData
+     */
+  }, {
+    key: "getWeeks",
+    value: function getWeeks(dateData) {
+      var _this$getDateObj = this.getDateObj(dateData),
+        year = _this$getDateObj.year,
+        month = _this$getDateObj.month;
+      var preMonthDayAmount = new Date(year, month - 1, 1).getDay();
+      var preMonthDays = this.getPreMonthDays(preMonthDayAmount, this.getDateObj(dateData));
+      var currentMonthDayAmount = new Date(year, month, 0).getDate();
+      var currentMonthDays = this.getCurrentMonthDays(currentMonthDayAmount, this.getDateObj(dateData));
+      var nextMonthDayAmount = 42 - preMonthDayAmount - currentMonthDayAmount;
+      var nextMonthDays = this._getNextMonthDays(nextMonthDayAmount, this.getDateObj(dateData));
+      var calendarDays = [].concat((0, _toConsumableArray2.default)(preMonthDays), (0, _toConsumableArray2.default)(currentMonthDays), (0, _toConsumableArray2.default)(nextMonthDays));
+      var weeks = new Array(6);
+      for (var i = 0; i < calendarDays.length; i++) {
+        var index = Math.floor(i / 7);
+        if (!weeks[index]) {
+          weeks[index] = new Array(7);
+        }
+        weeks[index][i % 7] = calendarDays[i];
+      }
+      this.calendar = calendarDays;
+      this.weeks = weeks;
+    }
+  }]);
+  return Calendar;
 }();
-exports.get_file_data = get_file_data;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+exports.Calendar = Calendar;
+function getDateTime(date, hideSecond) {
+  return "".concat(getDate(date), " ").concat(getTime(date, hideSecond));
+}
+function getDate(date) {
+  date = fixIosDateFormat(date);
+  date = new Date(date);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  return "".concat(year, "-").concat(addZero(month), "-").concat(addZero(day));
+}
+function getTime(date, hideSecond) {
+  date = fixIosDateFormat(date);
+  date = new Date(date);
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  return hideSecond ? "".concat(addZero(hour), ":").concat(addZero(minute)) : "".concat(addZero(hour), ":").concat(addZero(minute), ":").concat(addZero(second));
+}
+function addZero(num) {
+  if (num < 10) {
+    num = "0".concat(num);
+  }
+  return num;
+}
+function getDefaultSecond(hideSecond) {
+  return hideSecond ? '00:00' : '00:00:00';
+}
+function dateCompare(startDate, endDate) {
+  startDate = new Date(fixIosDateFormat(startDate));
+  endDate = new Date(fixIosDateFormat(endDate));
+  return startDate <= endDate;
+}
+function checkDate(date) {
+  var dateReg = /((19|20)\d{2})(-|\/)\d{1,2}(-|\/)\d{1,2}/g;
+  return date.match(dateReg);
+}
+var dateTimeReg = /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])( [0-5]?[0-9]:[0-5]?[0-9]:[0-5]?[0-9])?$/;
+function fixIosDateFormat(value) {
+  if (typeof value === 'string' && dateTimeReg.test(value)) {
+    value = value.replace(/-/g, '/');
+  }
+  return value;
+}
 
 /***/ }),
 
@@ -23625,105 +22765,280 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 523:
-/*!*************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/popup.js ***!
-  \*************************************************************************************************************/
+/***/ 521:
+/*!*********************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-sign-in/utils/ad.js ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  data: function data() {
-    return {};
-  },
-  created: function created() {
-    this.popup = this.getParent();
-  },
-  methods: {
-    /**
-     * 获取父元素实例
-     */
-    getParent: function getParent() {
-      var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'uniPopup';
-      var parent = this.$parent;
-      var parentName = parent.$options.name;
-      while (parentName !== name) {
-        parent = parent.$parent;
-        if (!parent) return false;
-        parentName = parent.$options.name;
-      }
-      return parent;
-    }
-  }
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 524:
-/*!******************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/index.js ***!
-  \******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 525));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 526));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 527));
-var _default = {
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default
+var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 32));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 33));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 34));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
+var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+// ad.js
+var ADType = {
+  RewardedVideo: "RewardedVideo",
+  FullScreenVideo: "FullScreenVideo"
 };
+var AdHelper = /*#__PURE__*/function () {
+  function AdHelper() {
+    (0, _classCallCheck2.default)(this, AdHelper);
+    this._ads = {};
+  }
+  (0, _createClass2.default)(AdHelper, [{
+    key: "load",
+    value: function load(options, onload, onerror) {
+      var ops = this._fixOldOptions(options);
+      var adpid = ops.adpid;
+      if (!adpid || this.isBusy(adpid)) {
+        return;
+      }
+      this.get(ops).load(onload, onerror);
+    }
+  }, {
+    key: "show",
+    value: function show(options, onsuccess, onfail) {
+      var ops = this._fixOldOptions(options);
+      var adpid = ops.adpid;
+      if (!adpid) {
+        return;
+      }
+      uni.showLoading({
+        mask: true
+      });
+      var ad = this.get(ops);
+      ad.load(function () {
+        uni.hideLoading();
+        ad.show(function (e) {
+          onsuccess && onsuccess(e);
+        });
+      }, function (err) {
+        uni.hideLoading();
+        onfail && onfail(err);
+      });
+    }
+  }, {
+    key: "isBusy",
+    value: function isBusy(adpid) {
+      return this._ads[adpid] && this._ads[adpid].isLoading;
+    }
+  }, {
+    key: "get",
+    value: function get(options) {
+      var adpid = options.adpid,
+        _options$singleton = options.singleton,
+        singleton = _options$singleton === void 0 ? true : _options$singleton;
+      if (singleton === false) {
+        if (this._ads[adpid]) {
+          this._ads[adpid].destroy();
+          delete this._ads[adpid];
+        }
+      }
+      delete options.singleton;
+      if (!this._ads[adpid]) {
+        this._ads[adpid] = this._createAdInstance(options);
+      }
+      return this._ads[adpid];
+    }
+  }, {
+    key: "_createAdInstance",
+    value: function _createAdInstance(options) {
+      var adType = options.adType || ADType.RewardedVideo;
+      delete options.adType;
+      var ad = null;
+      if (adType === ADType.RewardedVideo) {
+        ad = new RewardedVideo(options);
+      } else if (adType === ADType.FullScreenVideo) {
+        ad = new FullScreenVideo(options);
+      }
+      return ad;
+    }
+  }, {
+    key: "_fixOldOptions",
+    value: function _fixOldOptions(options) {
+      return typeof options === "string" ? {
+        adpid: options
+      } : options;
+    }
+  }]);
+  return AdHelper;
+}();
+var EXPIRED_TIME = 1000 * 60 * 30;
+var ProviderType = {
+  CSJ: 'csj',
+  GDT: 'gdt'
+};
+var RETRY_COUNT = 1;
+var AdBase = /*#__PURE__*/function () {
+  function AdBase(adInstance) {
+    var _this = this;
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    (0, _classCallCheck2.default)(this, AdBase);
+    this._isLoad = false;
+    this._isLoading = false;
+    this._lastLoadTime = 0;
+    this._lastError = null;
+    this._retryCount = 0;
+    this._loadCallback = null;
+    this._closeCallback = null;
+    this._errorCallback = null;
+    var ad = this._ad = adInstance;
+    ad.onLoad(function (e) {
+      _this._isLoading = false;
+      _this._isLoad = true;
+      _this._lastLoadTime = Date.now();
+      _this.onLoad();
+    });
+    ad.onClose(function (e) {
+      _this._isLoad = false;
+      _this.onClose(e);
+    });
+    ad.onVerify && ad.onVerify(function (e) {
+      // e.isValid
+    });
+    ad.onError(function (_ref) {
+      var code = _ref.code,
+        message = _ref.message;
+      _this._isLoading = false;
+      var data = {
+        code: code,
+        errMsg: message
+      };
+      if (code === -5008) {
+        _this._loadAd();
+        return;
+      }
+      if (_this._retryCount < RETRY_COUNT) {
+        _this._retryCount += 1;
+        _this._loadAd();
+        return;
+      }
+      _this._lastError = data;
+      _this.onError(data);
+    });
+  }
+  (0, _createClass2.default)(AdBase, [{
+    key: "isExpired",
+    get: function get() {
+      return this._lastLoadTime !== 0 && Math.abs(Date.now() - this._lastLoadTime) > EXPIRED_TIME;
+    }
+  }, {
+    key: "isLoading",
+    get: function get() {
+      return this._isLoading;
+    }
+  }, {
+    key: "getProvider",
+    value: function getProvider() {
+      return this._ad.getProvider();
+    }
+  }, {
+    key: "load",
+    value: function load(onload, onerror) {
+      this._loadCallback = onload;
+      this._errorCallback = onerror;
+      if (this._isLoading) {
+        return;
+      }
+      if (this._isLoad) {
+        this.onLoad();
+        return;
+      }
+      this._retryCount = 0;
+      this._loadAd();
+    }
+  }, {
+    key: "show",
+    value: function show(onclose) {
+      this._closeCallback = onclose;
+      if (this._isLoading || !this._isLoad) {
+        return;
+      }
+      if (this._lastError !== null) {
+        this.onError(this._lastError);
+        return;
+      }
+      var provider = this.getProvider();
+      if (provider === ProviderType.CSJ && this.isExpired) {
+        this._loadAd();
+        return;
+      }
+      this._ad.show();
+    }
+  }, {
+    key: "onLoad",
+    value: function onLoad(e) {
+      if (this._loadCallback != null) {
+        this._loadCallback();
+      }
+    }
+  }, {
+    key: "onClose",
+    value: function onClose(e) {
+      if (this._closeCallback != null) {
+        this._closeCallback({
+          isEnded: e.isEnded
+        });
+      }
+    }
+  }, {
+    key: "onError",
+    value: function onError(e) {
+      if (this._errorCallback != null) {
+        this._errorCallback(e);
+      }
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this._ad.destroy();
+    }
+  }, {
+    key: "_loadAd",
+    value: function _loadAd() {
+      this._isLoad = false;
+      this._isLoading = true;
+      this._lastError = null;
+      this._ad.load();
+    }
+  }]);
+  return AdBase;
+}();
+var RewardedVideo = /*#__PURE__*/function (_AdBase) {
+  (0, _inherits2.default)(RewardedVideo, _AdBase);
+  var _super = _createSuper(RewardedVideo);
+  function RewardedVideo() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    (0, _classCallCheck2.default)(this, RewardedVideo);
+    return _super.call(this, plus.ad.createRewardedVideoAd(options), options);
+  }
+  return (0, _createClass2.default)(RewardedVideo);
+}(AdBase);
+var FullScreenVideo = /*#__PURE__*/function (_AdBase2) {
+  (0, _inherits2.default)(FullScreenVideo, _AdBase2);
+  var _super2 = _createSuper(FullScreenVideo);
+  function FullScreenVideo() {
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    (0, _classCallCheck2.default)(this, FullScreenVideo);
+    return _super2.call(this, plus.ad.createFullScreenVideoAd(options), options);
+  }
+  return (0, _createClass2.default)(FullScreenVideo);
+}(AdBase);
+var _default = new AdHelper();
 exports.default = _default;
-
-/***/ }),
-
-/***/ 525:
-/*!*****************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/en.json ***!
-  \*****************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"cancel\",\"uni-popup.ok\":\"ok\",\"uni-popup.placeholder\":\"pleace enter\",\"uni-popup.title\":\"Hint\",\"uni-popup.shareTitle\":\"Share to\"}");
-
-/***/ }),
-
-/***/ 526:
-/*!**********************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hans.json ***!
-  \**********************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"确定\",\"uni-popup.placeholder\":\"请输入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
-
-/***/ }),
-
-/***/ 527:
-/*!**********************************************************************************************************************!*\
-  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hant.json ***!
-  \**********************************************************************************************************************/
-/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"確定\",\"uni-popup.placeholder\":\"請輸入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 
@@ -26253,7 +25568,1174 @@ VueI18n.version = '8.28.2';
 
 /***/ }),
 
+/***/ 548:
+/*!**************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 549));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 550));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 551));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 549:
+/*!*************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
+  \*************************************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show more\",\"uni-load-more.contentrefresh\":\"loading...\",\"uni-load-more.contentnomore\":\"No more data\"}");
+
+/***/ }),
+
+/***/ 550:
+/*!******************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
+  \******************************************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多\",\"uni-load-more.contentrefresh\":\"正在加载...\",\"uni-load-more.contentnomore\":\"没有更多数据了\"}");
+
+/***/ }),
+
+/***/ 551:
+/*!******************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
+  \******************************************************************************************************************************/
+/*! exports provided: uni-load-more.contentdown, uni-load-more.contentrefresh, uni-load-more.contentnomore, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
+
+/***/ }),
+
+/***/ 566:
+/*!**********************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/u-parse/libs/html2json.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(wx) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _wxDiscode = _interopRequireDefault(__webpack_require__(/*! ./wxDiscode */ 567));
+var _htmlparser = _interopRequireDefault(__webpack_require__(/*! ./htmlparser */ 568));
+/**
+ * html2Json 改造来自: https://github.com/Jxck/html2json
+ *
+ *
+ * author: Di (微信小程序开发工程师)
+ * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ *               垂直微信小程序开发交流社区
+ *
+ * github地址: https://github.com/icindy/wxParse
+ *
+ * for: 微信小程序富文本解析
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ */
+
+function makeMap(str) {
+  var obj = {};
+  var items = str.split(',');
+  for (var i = 0; i < items.length; i += 1) {
+    obj[items[i]] = true;
+  }
+  return obj;
+}
+
+// Block Elements - HTML 5
+var block = makeMap('br,code,address,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video');
+
+// Inline Elements - HTML 5
+var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
+
+// Elements that you can, intentionally, leave open
+// (and which close themselves)
+var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
+function removeDOCTYPE(html) {
+  var isDocument = /<body.*>([^]*)<\/body>/.test(html);
+  return isDocument ? RegExp.$1 : html;
+}
+function trimHtml(html) {
+  return html.replace(/<!--.*?-->/gi, '').replace(/\/\*.*?\*\//gi, '').replace(/[ ]+</gi, '<').replace(/<script[^]*<\/script>/gi, '').replace(/<style[^]*<\/style>/gi, '');
+}
+function getScreenInfo() {
+  var screen = {};
+  wx.getSystemInfo({
+    success: function success(res) {
+      screen.width = res.windowWidth;
+      screen.height = res.windowHeight;
+    }
+  });
+  return screen;
+}
+function html2json(html, customHandler, imageProp, host) {
+  // 处理字符串
+  html = removeDOCTYPE(html);
+  html = trimHtml(html);
+  html = _wxDiscode.default.strDiscode(html);
+  // 生成node节点
+  var bufArray = [];
+  var results = {
+    nodes: [],
+    imageUrls: []
+  };
+  var screen = getScreenInfo();
+  function Node(tag) {
+    this.node = 'element';
+    this.tag = tag;
+    this.$screen = screen;
+  }
+  (0, _htmlparser.default)(html, {
+    start: function start(tag, attrs, unary) {
+      // node for this element
+      var node = new Node(tag);
+      if (bufArray.length !== 0) {
+        var parent = bufArray[0];
+        if (parent.nodes === undefined) {
+          parent.nodes = [];
+        }
+      }
+      if (block[tag]) {
+        node.tagType = 'block';
+      } else if (inline[tag]) {
+        node.tagType = 'inline';
+      } else if (closeSelf[tag]) {
+        node.tagType = 'closeSelf';
+      }
+      node.attr = attrs.reduce(function (pre, attr) {
+        var name = attr.name;
+        var value = attr.value;
+        if (name === 'class') {
+          node.classStr = value;
+        }
+        // has multi attibutes
+        // make it array of attribute
+        if (name === 'style') {
+          node.styleStr = value;
+        }
+        if (value.match(/ /)) {
+          value = value.split(' ');
+        }
+
+        // if attr already exists
+        // merge it
+        if (pre[name]) {
+          if (Array.isArray(pre[name])) {
+            // already array, push to last
+            pre[name].push(value);
+          } else {
+            // single value, make it array
+            pre[name] = [pre[name], value];
+          }
+        } else {
+          // not exist, put it
+          pre[name] = value;
+        }
+        return pre;
+      }, {});
+
+      // 优化样式相关属性
+      if (node.classStr) {
+        node.classStr += " ".concat(node.tag);
+      } else {
+        node.classStr = node.tag;
+      }
+      if (node.tagType === 'inline') {
+        node.classStr += ' inline';
+      }
+
+      // 对img添加额外数据
+      if (node.tag === 'img') {
+        var imgUrl = node.attr.src;
+        imgUrl = _wxDiscode.default.urlToHttpUrl(imgUrl, imageProp.domain);
+        Object.assign(node.attr, imageProp, {
+          src: imgUrl || ''
+        });
+        if (imgUrl) {
+          results.imageUrls.push(imgUrl);
+        }
+      }
+
+      // 处理a标签属性
+      if (node.tag === 'a') {
+        node.attr.href = node.attr.href || '';
+      }
+
+      // 处理font标签样式属性
+      if (node.tag === 'font') {
+        var fontSize = ['x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', '-webkit-xxx-large'];
+        var styleAttrs = {
+          color: 'color',
+          face: 'font-family',
+          size: 'font-size'
+        };
+        if (!node.styleStr) node.styleStr = '';
+        Object.keys(styleAttrs).forEach(function (key) {
+          if (node.attr[key]) {
+            var value = key === 'size' ? fontSize[node.attr[key] - 1] : node.attr[key];
+            node.styleStr += "".concat(styleAttrs[key], ": ").concat(value, ";");
+          }
+        });
+      }
+
+      // 临时记录source资源
+      if (node.tag === 'source') {
+        results.source = node.attr.src;
+      }
+      if (customHandler.start) {
+        customHandler.start(node, results);
+      }
+      if (unary) {
+        // if this tag doesn't have end tag
+        // like <img src="hoge.png"/>
+        // add to parents
+        var _parent = bufArray[0] || results;
+        if (_parent.nodes === undefined) {
+          _parent.nodes = [];
+        }
+        _parent.nodes.push(node);
+      } else {
+        bufArray.unshift(node);
+      }
+    },
+    end: function end(tag) {
+      // merge into parent tag
+      var node = bufArray.shift();
+      if (node.tag !== tag) {
+        console.error('invalid state: mismatch end tag');
+      }
+
+      // 当有缓存source资源时于于video补上src资源
+      if (node.tag === 'video' && results.source) {
+        node.attr.src = results.source;
+        delete results.source;
+      }
+      if (customHandler.end) {
+        customHandler.end(node, results);
+      }
+      if (bufArray.length === 0) {
+        results.nodes.push(node);
+      } else {
+        var parent = bufArray[0];
+        if (!parent.nodes) {
+          parent.nodes = [];
+        }
+        parent.nodes.push(node);
+      }
+    },
+    chars: function chars(text) {
+      if (!text.trim()) return;
+      var node = {
+        node: 'text',
+        text: text
+      };
+      if (customHandler.chars) {
+        customHandler.chars(node, results);
+      }
+      if (bufArray.length === 0) {
+        results.nodes.push(node);
+      } else {
+        var parent = bufArray[0];
+        if (parent.nodes === undefined) {
+          parent.nodes = [];
+        }
+        parent.nodes.push(node);
+      }
+    }
+  });
+  return results;
+}
+var _default = html2json;
+exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 567:
+/*!**********************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/u-parse/libs/wxDiscode.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+// HTML 支持的数学符号
+function strNumDiscode(str) {
+  str = str.replace(/&forall;/g, '∀');
+  str = str.replace(/&part;/g, '∂');
+  str = str.replace(/&exist;/g, '∃');
+  str = str.replace(/&empty;/g, '∅');
+  str = str.replace(/&nabla;/g, '∇');
+  str = str.replace(/&isin;/g, '∈');
+  str = str.replace(/&notin;/g, '∉');
+  str = str.replace(/&ni;/g, '∋');
+  str = str.replace(/&prod;/g, '∏');
+  str = str.replace(/&sum;/g, '∑');
+  str = str.replace(/&minus;/g, '−');
+  str = str.replace(/&lowast;/g, '∗');
+  str = str.replace(/&radic;/g, '√');
+  str = str.replace(/&prop;/g, '∝');
+  str = str.replace(/&infin;/g, '∞');
+  str = str.replace(/&ang;/g, '∠');
+  str = str.replace(/&and;/g, '∧');
+  str = str.replace(/&or;/g, '∨');
+  str = str.replace(/&cap;/g, '∩');
+  str = str.replace(/&cup;/g, '∪');
+  str = str.replace(/&int;/g, '∫');
+  str = str.replace(/&there4;/g, '∴');
+  str = str.replace(/&sim;/g, '∼');
+  str = str.replace(/&cong;/g, '≅');
+  str = str.replace(/&asymp;/g, '≈');
+  str = str.replace(/&ne;/g, '≠');
+  str = str.replace(/&le;/g, '≤');
+  str = str.replace(/&ge;/g, '≥');
+  str = str.replace(/&sub;/g, '⊂');
+  str = str.replace(/&sup;/g, '⊃');
+  str = str.replace(/&nsub;/g, '⊄');
+  str = str.replace(/&sube;/g, '⊆');
+  str = str.replace(/&supe;/g, '⊇');
+  str = str.replace(/&oplus;/g, '⊕');
+  str = str.replace(/&otimes;/g, '⊗');
+  str = str.replace(/&perp;/g, '⊥');
+  str = str.replace(/&sdot;/g, '⋅');
+  return str;
+}
+
+// HTML 支持的希腊字母
+function strGreeceDiscode(str) {
+  str = str.replace(/&Alpha;/g, 'Α');
+  str = str.replace(/&Beta;/g, 'Β');
+  str = str.replace(/&Gamma;/g, 'Γ');
+  str = str.replace(/&Delta;/g, 'Δ');
+  str = str.replace(/&Epsilon;/g, 'Ε');
+  str = str.replace(/&Zeta;/g, 'Ζ');
+  str = str.replace(/&Eta;/g, 'Η');
+  str = str.replace(/&Theta;/g, 'Θ');
+  str = str.replace(/&Iota;/g, 'Ι');
+  str = str.replace(/&Kappa;/g, 'Κ');
+  str = str.replace(/&Lambda;/g, 'Λ');
+  str = str.replace(/&Mu;/g, 'Μ');
+  str = str.replace(/&Nu;/g, 'Ν');
+  str = str.replace(/&Xi;/g, 'Ν');
+  str = str.replace(/&Omicron;/g, 'Ο');
+  str = str.replace(/&Pi;/g, 'Π');
+  str = str.replace(/&Rho;/g, 'Ρ');
+  str = str.replace(/&Sigma;/g, 'Σ');
+  str = str.replace(/&Tau;/g, 'Τ');
+  str = str.replace(/&Upsilon;/g, 'Υ');
+  str = str.replace(/&Phi;/g, 'Φ');
+  str = str.replace(/&Chi;/g, 'Χ');
+  str = str.replace(/&Psi;/g, 'Ψ');
+  str = str.replace(/&Omega;/g, 'Ω');
+  str = str.replace(/&alpha;/g, 'α');
+  str = str.replace(/&beta;/g, 'β');
+  str = str.replace(/&gamma;/g, 'γ');
+  str = str.replace(/&delta;/g, 'δ');
+  str = str.replace(/&epsilon;/g, 'ε');
+  str = str.replace(/&zeta;/g, 'ζ');
+  str = str.replace(/&eta;/g, 'η');
+  str = str.replace(/&theta;/g, 'θ');
+  str = str.replace(/&iota;/g, 'ι');
+  str = str.replace(/&kappa;/g, 'κ');
+  str = str.replace(/&lambda;/g, 'λ');
+  str = str.replace(/&mu;/g, 'μ');
+  str = str.replace(/&nu;/g, 'ν');
+  str = str.replace(/&xi;/g, 'ξ');
+  str = str.replace(/&omicron;/g, 'ο');
+  str = str.replace(/&pi;/g, 'π');
+  str = str.replace(/&rho;/g, 'ρ');
+  str = str.replace(/&sigmaf;/g, 'ς');
+  str = str.replace(/&sigma;/g, 'σ');
+  str = str.replace(/&tau;/g, 'τ');
+  str = str.replace(/&upsilon;/g, 'υ');
+  str = str.replace(/&phi;/g, 'φ');
+  str = str.replace(/&chi;/g, 'χ');
+  str = str.replace(/&psi;/g, 'ψ');
+  str = str.replace(/&omega;/g, 'ω');
+  str = str.replace(/&thetasym;/g, 'ϑ');
+  str = str.replace(/&upsih;/g, 'ϒ');
+  str = str.replace(/&piv;/g, 'ϖ');
+  str = str.replace(/&middot;/g, '·');
+  return str;
+}
+function strcharacterDiscode(str) {
+  // 加入常用解析
+  str = str.replace(/&nbsp;/g, ' ');
+  str = str.replace(/&ensp;/g, ' ');
+  str = str.replace(/&emsp;/g, '　');
+  str = str.replace(/&quot;/g, "'");
+  str = str.replace(/&amp;/g, '&');
+  str = str.replace(/&lt;/g, '<');
+  str = str.replace(/&gt;/g, '>');
+  str = str.replace(/&#8226;/g, '•');
+  return str;
+}
+
+// HTML 支持的其他实体
+function strOtherDiscode(str) {
+  str = str.replace(/&OElig;/g, 'Œ');
+  str = str.replace(/&oelig;/g, 'œ');
+  str = str.replace(/&Scaron;/g, 'Š');
+  str = str.replace(/&scaron;/g, 'š');
+  str = str.replace(/&Yuml;/g, 'Ÿ');
+  str = str.replace(/&fnof;/g, 'ƒ');
+  str = str.replace(/&circ;/g, 'ˆ');
+  str = str.replace(/&tilde;/g, '˜');
+  str = str.replace(/&ensp;/g, '');
+  str = str.replace(/&emsp;/g, '');
+  str = str.replace(/&thinsp;/g, '');
+  str = str.replace(/&zwnj;/g, '');
+  str = str.replace(/&zwj;/g, '');
+  str = str.replace(/&lrm;/g, '');
+  str = str.replace(/&rlm;/g, '');
+  str = str.replace(/&ndash;/g, '–');
+  str = str.replace(/&mdash;/g, '—');
+  str = str.replace(/&lsquo;/g, '‘');
+  str = str.replace(/&rsquo;/g, '’');
+  str = str.replace(/&sbquo;/g, '‚');
+  str = str.replace(/&ldquo;/g, '“');
+  str = str.replace(/&rdquo;/g, '”');
+  str = str.replace(/&bdquo;/g, '„');
+  str = str.replace(/&dagger;/g, '†');
+  str = str.replace(/&Dagger;/g, '‡');
+  str = str.replace(/&bull;/g, '•');
+  str = str.replace(/&hellip;/g, '…');
+  str = str.replace(/&permil;/g, '‰');
+  str = str.replace(/&prime;/g, '′');
+  str = str.replace(/&Prime;/g, '″');
+  str = str.replace(/&lsaquo;/g, '‹');
+  str = str.replace(/&rsaquo;/g, '›');
+  str = str.replace(/&oline;/g, '‾');
+  str = str.replace(/&euro;/g, '€');
+  str = str.replace(/&trade;/g, '™');
+  str = str.replace(/&larr;/g, '←');
+  str = str.replace(/&uarr;/g, '↑');
+  str = str.replace(/&rarr;/g, '→');
+  str = str.replace(/&darr;/g, '↓');
+  str = str.replace(/&harr;/g, '↔');
+  str = str.replace(/&crarr;/g, '↵');
+  str = str.replace(/&lceil;/g, '⌈');
+  str = str.replace(/&rceil;/g, '⌉');
+  str = str.replace(/&lfloor;/g, '⌊');
+  str = str.replace(/&rfloor;/g, '⌋');
+  str = str.replace(/&loz;/g, '◊');
+  str = str.replace(/&spades;/g, '♠');
+  str = str.replace(/&clubs;/g, '♣');
+  str = str.replace(/&hearts;/g, '♥');
+  str = str.replace(/&diams;/g, '♦');
+  str = str.replace(/&#39;/g, "'");
+  return str;
+}
+function strDiscode(str) {
+  str = strNumDiscode(str);
+  str = strGreeceDiscode(str);
+  str = strcharacterDiscode(str);
+  str = strOtherDiscode(str);
+  return str;
+}
+function urlToHttpUrl(url, domain) {
+  if (/^\/\//.test(url)) {
+    return "https:".concat(url);
+  } else if (/^\//.test(url)) {
+    return "https://".concat(domain).concat(url);
+  }
+  return url;
+}
+var _default = {
+  strDiscode: strDiscode,
+  urlToHttpUrl: urlToHttpUrl
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 568:
+/*!***********************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/components/u-parse/libs/htmlparser.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+/**
+ *
+ * htmlParser改造自: https://github.com/blowsie/Pure-JavaScript-HTML5-Parser
+ *
+ * author: Di (微信小程序开发工程师)
+ * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ *               垂直微信小程序开发交流社区
+ *
+ * github地址: https://github.com/icindy/wxParse
+ *
+ * for: 微信小程序富文本解析
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ */
+// Regular Expressions for parsing tags and attributes
+
+var startTag = /^<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z0-9_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/;
+var endTag = /^<\/([-A-Za-z0-9_]+)[^>]*>/;
+var attr = /([a-zA-Z0-9_:][-a-zA-Z0-9_:.]*)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g;
+function makeMap(str) {
+  var obj = {};
+  var items = str.split(',');
+  for (var i = 0; i < items.length; i += 1) {
+    obj[items[i]] = true;
+  }
+  return obj;
+}
+
+// Empty Elements - HTML 5
+var empty = makeMap('area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr');
+
+// Block Elements - HTML 5
+var block = makeMap('address,code,article,applet,aside,audio,blockquote,button,canvas,center,dd,del,dir,div,dl,dt,fieldset,figcaption,figure,footer,form,frameset,h1,h2,h3,h4,h5,h6,header,hgroup,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,output,p,pre,section,script,table,tbody,td,tfoot,th,thead,tr,ul,video');
+
+// Inline Elements - HTML 5
+var inline = makeMap('a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var');
+
+// Elements that you can, intentionally, leave open
+// (and which close themselves)
+var closeSelf = makeMap('colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr');
+
+// Attributes that have their values filled in disabled="disabled"
+var fillAttrs = makeMap('checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected');
+function HTMLParser(html, handler) {
+  var index;
+  var chars;
+  var match;
+  var last = html;
+  var stack = [];
+  stack.last = function () {
+    return stack[stack.length - 1];
+  };
+  function parseEndTag(tag, tagName) {
+    // If no tag name is provided, clean shop
+    var pos;
+    if (!tagName) {
+      pos = 0;
+    } else {
+      // Find the closest opened tag of the same type
+      tagName = tagName.toLowerCase();
+      for (pos = stack.length - 1; pos >= 0; pos -= 1) {
+        if (stack[pos] === tagName) break;
+      }
+    }
+    if (pos >= 0) {
+      // Close all the open elements, up the stack
+      for (var i = stack.length - 1; i >= pos; i -= 1) {
+        if (handler.end) handler.end(stack[i]);
+      }
+
+      // Remove the open elements from the stack
+      stack.length = pos;
+    }
+  }
+  function parseStartTag(tag, tagName, rest, unary) {
+    tagName = tagName.toLowerCase();
+    if (block[tagName]) {
+      while (stack.last() && inline[stack.last()]) {
+        parseEndTag('', stack.last());
+      }
+    }
+    if (closeSelf[tagName] && stack.last() === tagName) {
+      parseEndTag('', tagName);
+    }
+    unary = empty[tagName] || !!unary;
+    if (!unary) stack.push(tagName);
+    if (handler.start) {
+      var attrs = [];
+      rest.replace(attr, function genAttr(matches, name) {
+        var value = arguments[2] || arguments[3] || arguments[4] || (fillAttrs[name] ? name : '');
+        attrs.push({
+          name: name,
+          value: value,
+          escaped: value.replace(/(^|[^\\])"/g, '$1\\"') // "
+        });
+      });
+
+      if (handler.start) {
+        handler.start(tagName, attrs, unary);
+      }
+    }
+  }
+  while (html) {
+    chars = true;
+    if (html.indexOf('</') === 0) {
+      match = html.match(endTag);
+      if (match) {
+        html = html.substring(match[0].length);
+        match[0].replace(endTag, parseEndTag);
+        chars = false;
+      }
+
+      // start tag
+    } else if (html.indexOf('<') === 0) {
+      match = html.match(startTag);
+      if (match) {
+        html = html.substring(match[0].length);
+        match[0].replace(startTag, parseStartTag);
+        chars = false;
+      }
+    }
+    if (chars) {
+      index = html.indexOf('<');
+      var text = '';
+      while (index === 0) {
+        text += '<';
+        html = html.substring(1);
+        index = html.indexOf('<');
+      }
+      text += index < 0 ? html : html.substring(0, index);
+      html = index < 0 ? '' : html.substring(index);
+      if (handler.chars) handler.chars(text);
+    }
+    if (html === last) throw new Error("Parse Error: ".concat(html));
+    last = html;
+  }
+
+  // Clean up any remaining tags
+  parseEndTag();
+}
+var _default = HTMLParser;
+exports.default = _default;
+
+/***/ }),
+
+/***/ 574:
+/*!******************************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-file-picker/components/uni-file-picker/choose-and-upload-file.js ***!
+  \******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni, wx, uniCloud) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.chooseAndUploadFile = chooseAndUploadFile;
+exports.uploadCloudFiles = uploadCloudFiles;
+var ERR_MSG_OK = 'chooseAndUploadFile:ok';
+var ERR_MSG_FAIL = 'chooseAndUploadFile:fail';
+function chooseImage(opts) {
+  var count = opts.count,
+    _opts$sizeType = opts.sizeType,
+    sizeType = _opts$sizeType === void 0 ? ['original', 'compressed'] : _opts$sizeType,
+    sourceType = opts.sourceType,
+    extension = opts.extension;
+  return new Promise(function (resolve, reject) {
+    uni.chooseImage({
+      count: count,
+      sizeType: sizeType,
+      sourceType: sourceType,
+      extension: extension,
+      success: function success(res) {
+        resolve(normalizeChooseAndUploadFileRes(res, 'image'));
+      },
+      fail: function fail(res) {
+        reject({
+          errMsg: res.errMsg.replace('chooseImage:fail', ERR_MSG_FAIL)
+        });
+      }
+    });
+  });
+}
+function chooseVideo(opts) {
+  var camera = opts.camera,
+    compressed = opts.compressed,
+    maxDuration = opts.maxDuration,
+    sourceType = opts.sourceType,
+    extension = opts.extension;
+  return new Promise(function (resolve, reject) {
+    uni.chooseVideo({
+      camera: camera,
+      compressed: compressed,
+      maxDuration: maxDuration,
+      sourceType: sourceType,
+      extension: extension,
+      success: function success(res) {
+        var tempFilePath = res.tempFilePath,
+          duration = res.duration,
+          size = res.size,
+          height = res.height,
+          width = res.width;
+        resolve(normalizeChooseAndUploadFileRes({
+          errMsg: 'chooseVideo:ok',
+          tempFilePaths: [tempFilePath],
+          tempFiles: [{
+            name: res.tempFile && res.tempFile.name || '',
+            path: tempFilePath,
+            size: size,
+            type: res.tempFile && res.tempFile.type || '',
+            width: width,
+            height: height,
+            duration: duration,
+            fileType: 'video',
+            cloudPath: ''
+          }]
+        }, 'video'));
+      },
+      fail: function fail(res) {
+        reject({
+          errMsg: res.errMsg.replace('chooseVideo:fail', ERR_MSG_FAIL)
+        });
+      }
+    });
+  });
+}
+function chooseAll(opts) {
+  var count = opts.count,
+    extension = opts.extension;
+  return new Promise(function (resolve, reject) {
+    var chooseFile = uni.chooseFile;
+    if (typeof wx !== 'undefined' && typeof wx.chooseMessageFile === 'function') {
+      chooseFile = wx.chooseMessageFile;
+    }
+    if (typeof chooseFile !== 'function') {
+      return reject({
+        errMsg: ERR_MSG_FAIL + ' 请指定 type 类型，该平台仅支持选择 image 或 video。'
+      });
+    }
+    chooseFile({
+      type: 'all',
+      count: count,
+      extension: extension,
+      success: function success(res) {
+        resolve(normalizeChooseAndUploadFileRes(res));
+      },
+      fail: function fail(res) {
+        reject({
+          errMsg: res.errMsg.replace('chooseFile:fail', ERR_MSG_FAIL)
+        });
+      }
+    });
+  });
+}
+function normalizeChooseAndUploadFileRes(res, fileType) {
+  res.tempFiles.forEach(function (item, index) {
+    if (!item.name) {
+      item.name = item.path.substring(item.path.lastIndexOf('/') + 1);
+    }
+    if (fileType) {
+      item.fileType = fileType;
+    }
+    item.cloudPath = Date.now() + '_' + index + item.name.substring(item.name.lastIndexOf('.'));
+  });
+  if (!res.tempFilePaths) {
+    res.tempFilePaths = res.tempFiles.map(function (file) {
+      return file.path;
+    });
+  }
+  return res;
+}
+function uploadCloudFiles(files) {
+  var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+  var _onUploadProgress = arguments.length > 2 ? arguments[2] : undefined;
+  files = JSON.parse(JSON.stringify(files));
+  var len = files.length;
+  var count = 0;
+  var self = this;
+  return new Promise(function (resolve) {
+    while (count < max) {
+      next();
+    }
+    function next() {
+      var cur = count++;
+      if (cur >= len) {
+        !files.find(function (item) {
+          return !item.url && !item.errMsg;
+        }) && resolve(files);
+        return;
+      }
+      var fileItem = files[cur];
+      var index = self.files.findIndex(function (v) {
+        return v.uuid === fileItem.uuid;
+      });
+      fileItem.url = '';
+      delete fileItem.errMsg;
+      uniCloud.uploadFile({
+        filePath: fileItem.path,
+        cloudPath: fileItem.cloudPath,
+        fileType: fileItem.fileType,
+        onUploadProgress: function onUploadProgress(res) {
+          res.index = index;
+          _onUploadProgress && _onUploadProgress(res);
+        }
+      }).then(function (res) {
+        fileItem.url = res.fileID;
+        fileItem.index = index;
+        if (cur < len) {
+          next();
+        }
+      }).catch(function (res) {
+        fileItem.errMsg = res.errMsg || res.message;
+        fileItem.index = index;
+        if (cur < len) {
+          next();
+        }
+      });
+    }
+  });
+}
+function uploadFiles(choosePromise, _ref) {
+  var onChooseFile = _ref.onChooseFile,
+    onUploadProgress = _ref.onUploadProgress;
+  return choosePromise.then(function (res) {
+    if (onChooseFile) {
+      var customChooseRes = onChooseFile(res);
+      if (typeof customChooseRes !== 'undefined') {
+        return Promise.resolve(customChooseRes).then(function (chooseRes) {
+          return typeof chooseRes === 'undefined' ? res : chooseRes;
+        });
+      }
+    }
+    return res;
+  }).then(function (res) {
+    if (res === false) {
+      return {
+        errMsg: ERR_MSG_OK,
+        tempFilePaths: [],
+        tempFiles: []
+      };
+    }
+    return res;
+  });
+}
+function chooseAndUploadFile() {
+  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    type: 'all'
+  };
+  if (opts.type === 'image') {
+    return uploadFiles(chooseImage(opts), opts);
+  } else if (opts.type === 'video') {
+    return uploadFiles(chooseVideo(opts), opts);
+  }
+  return uploadFiles(chooseAll(opts), opts);
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js */ 27)["default"]))
+
+/***/ }),
+
+/***/ 575:
+/*!*************************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-file-picker/components/uni-file-picker/utils.js ***!
+  \*************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.get_files_and_is_max = exports.get_file_info = exports.get_file_ext = exports.get_file_data = exports.get_extname = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 28));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 31));
+/**
+ * 获取文件名和后缀
+ * @param {String} name
+ */
+var get_file_ext = function get_file_ext(name) {
+  var last_len = name.lastIndexOf('.');
+  var len = name.length;
+  return {
+    name: name.substring(0, last_len),
+    ext: name.substring(last_len + 1, len)
+  };
+};
+
+/**
+ * 获取扩展名
+ * @param {Array} fileExtname
+ */
+exports.get_file_ext = get_file_ext;
+var get_extname = function get_extname(fileExtname) {
+  if (!Array.isArray(fileExtname)) {
+    var extname = fileExtname.replace(/(\[|\])/g, '');
+    return extname.split(',');
+  } else {
+    return fileExtname;
+  }
+  return [];
+};
+
+/**
+ * 获取文件和检测是否可选
+ */
+exports.get_extname = get_extname;
+var get_files_and_is_max = function get_files_and_is_max(res, _extname) {
+  var filePaths = [];
+  var files = [];
+  if (!_extname || _extname.length === 0) {
+    return {
+      filePaths: filePaths,
+      files: files
+    };
+  }
+  res.tempFiles.forEach(function (v) {
+    var fileFullName = get_file_ext(v.name);
+    var extname = fileFullName.ext.toLowerCase();
+    if (_extname.indexOf(extname) !== -1) {
+      files.push(v);
+      filePaths.push(v.path);
+    }
+  });
+  if (files.length !== res.tempFiles.length) {
+    uni.showToast({
+      title: "\u5F53\u524D\u9009\u62E9\u4E86".concat(res.tempFiles.length, "\u4E2A\u6587\u4EF6 \uFF0C").concat(res.tempFiles.length - files.length, " \u4E2A\u6587\u4EF6\u683C\u5F0F\u4E0D\u6B63\u786E"),
+      icon: 'none',
+      duration: 5000
+    });
+  }
+  return {
+    filePaths: filePaths,
+    files: files
+  };
+};
+
+/**
+ * 获取图片信息
+ * @param {Object} filepath
+ */
+exports.get_files_and_is_max = get_files_and_is_max;
+var get_file_info = function get_file_info(filepath) {
+  return new Promise(function (resolve, reject) {
+    uni.getImageInfo({
+      src: filepath,
+      success: function success(res) {
+        resolve(res);
+      },
+      fail: function fail(err) {
+        reject(err);
+      }
+    });
+  });
+};
+/**
+ * 获取封装数据
+ */
+exports.get_file_info = get_file_info;
+var get_file_data = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(files) {
+    var type,
+      fileFullName,
+      extname,
+      filedata,
+      imageinfo,
+      _args = arguments;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            type = _args.length > 1 && _args[1] !== undefined ? _args[1] : 'image';
+            // 最终需要上传数据库的数据
+            fileFullName = get_file_ext(files.name);
+            extname = fileFullName.ext.toLowerCase();
+            filedata = {
+              name: files.name,
+              uuid: files.uuid,
+              extname: extname || '',
+              cloudPath: files.cloudPath,
+              fileType: files.fileType,
+              url: files.path || files.path,
+              size: files.size,
+              //单位是字节
+              image: {},
+              path: files.path,
+              video: {}
+            };
+            if (!(type === 'image')) {
+              _context.next = 14;
+              break;
+            }
+            _context.next = 7;
+            return get_file_info(files.path);
+          case 7:
+            imageinfo = _context.sent;
+            delete filedata.video;
+            filedata.image.width = imageinfo.width;
+            filedata.image.height = imageinfo.height;
+            filedata.image.location = imageinfo.path;
+            _context.next = 15;
+            break;
+          case 14:
+            delete filedata.image;
+          case 15:
+            return _context.abrupt("return", filedata);
+          case 16:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return function get_file_data(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+exports.get_file_data = get_file_data;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 590:
+/*!*************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/popup.js ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  data: function data() {
+    return {};
+  },
+  created: function created() {
+    this.popup = this.getParent();
+  },
+  methods: {
+    /**
+     * 获取父元素实例
+     */
+    getParent: function getParent() {
+      var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'uniPopup';
+      var parent = this.$parent;
+      var parentName = parent.$options.name;
+      while (parentName !== name) {
+        parent = parent.$parent;
+        if (!parent) return false;
+        parentName = parent.$options.name;
+      }
+      return parent;
+    }
+  }
+};
+exports.default = _default;
+
+/***/ }),
+
 /***/ 591:
+/*!******************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/index.js ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 592));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 593));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 594));
+var _default = {
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 592:
+/*!*****************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/en.json ***!
+  \*****************************************************************************************************************/
+/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-popup.cancel\":\"cancel\",\"uni-popup.ok\":\"ok\",\"uni-popup.placeholder\":\"pleace enter\",\"uni-popup.title\":\"Hint\",\"uni-popup.shareTitle\":\"Share to\"}");
+
+/***/ }),
+
+/***/ 593:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hans.json ***!
+  \**********************************************************************************************************************/
+/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"确定\",\"uni-popup.placeholder\":\"请输入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
+
+/***/ }),
+
+/***/ 594:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-popup/components/uni-popup/i18n/zh-Hant.json ***!
+  \**********************************************************************************************************************/
+/*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\"確定\",\"uni-popup.placeholder\":\"請輸入\",\"uni-popup.title\":\"提示\",\"uni-popup.shareTitle\":\"分享到\"}");
+
+/***/ }),
+
+/***/ 6:
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 679:
 /*!*********************************************************************************************************************************!*\
   !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
   \*********************************************************************************************************************************/
@@ -26385,20 +26867,6 @@ function createAnimation(option, _this) {
   return new MPAnimation(option, _this);
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-
-/***/ 6:
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
@@ -26620,6 +27088,266 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 92:
+/*!*******************************************************************************************!*\
+  !*** /Users/wangyue/Desktop/echo/uni-app/question-bank/js_sdk/validator/question-list.js ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.enumConverter = void 0;
+exports.filterToWhere = filterToWhere;
+exports.validator = void 0;
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+// 表单校验规则由 schema2code 生成，不建议直接修改校验规则，而建议通过 schema2code 生成, 详情: https://uniapp.dcloud.net.cn/uniCloud/schema
+
+var validator = {
+  "user_id": {
+    "rules": [{
+      "required": true
+    }, {
+      "format": "string"
+    }],
+    "defaultValue": {
+      "$env": "uid"
+    }
+  },
+  "category_id": {
+    "rules": [{
+      "required": true
+    }, {
+      "format": "string"
+    }],
+    "title": "分类",
+    "label": "分类"
+  },
+  "title": {
+    "rules": [{
+      "required": true
+    }, {
+      "format": "string"
+    }],
+    "label": "题目",
+    "title": "题目"
+  },
+  "difficulty": {
+    "rules": [{
+      "format": "int"
+    }],
+    "title": "难度",
+    "label": "难度"
+  },
+  "content": {
+    "rules": [{
+      "required": true
+    }, {
+      "format": "string"
+    }],
+    "label": "试题内容",
+    "title": "试题内容"
+  },
+  "answer": {
+    "rules": [{
+      "format": "string"
+    }],
+    "label": "试题答案",
+    "title": "试题答案"
+  },
+  "answer_analysis": {
+    "rules": [{
+      "format": "string"
+    }],
+    "label": "答案解析",
+    "title": "答案解析"
+  },
+  "is_choice": {
+    "rules": [{
+      "format": "int"
+    }, {
+      "range": [{
+        "value": 0,
+        "text": "否"
+      }, {
+        "value": 1,
+        "text": "是"
+      }]
+    }],
+    "title": "是否为选择题",
+    "defaultValue": 0,
+    "label": "是否为选择题"
+  },
+  "answer_options": {
+    "rules": [{
+      "format": "array"
+    }],
+    "title": "选项",
+    "label": "选项"
+  },
+  "question_status": {
+    "rules": [{
+      "format": "int"
+    }, {
+      "range": [{
+        "value": 0,
+        "text": "草稿箱"
+      }, {
+        "value": 1,
+        "text": "已发布"
+      }]
+    }],
+    "title": "试题状态",
+    "defaultValue": 0,
+    "label": "试题状态"
+  },
+  "comment_status": {
+    "rules": [{
+      "format": "int"
+    }, {
+      "range": [{
+        "value": 0,
+        "text": "关闭"
+      }, {
+        "value": 1,
+        "text": "开放"
+      }]
+    }],
+    "title": "开放评论",
+    "label": "开放评论"
+  },
+  "last_comment_user_id": {
+    "rules": [{
+      "format": "string"
+    }]
+  },
+  "publish_date": {
+    "rules": [{
+      "format": "timestamp"
+    }],
+    "title": "发表时间",
+    "defaultValue": {
+      "$env": "now"
+    },
+    "label": "发表时间"
+  },
+  "last_modify_date": {
+    "rules": [{
+      "format": "timestamp"
+    }],
+    "title": "最后修改时间",
+    "defaultValue": {
+      "$env": "now"
+    },
+    "label": "最后修改时间"
+  },
+  "mode": {
+    "rules": [{
+      "format": "int"
+    }, {
+      "range": [{
+        "value": 0,
+        "text": "普通模式"
+      }, {
+        "value": 1,
+        "text": "背题模式"
+      }]
+    }],
+    "title": "查看模式",
+    "defaultValue": 0,
+    "label": "查看模式"
+  }
+};
+exports.validator = validator;
+var enumConverter = {
+  "is_choice_valuetotext": {
+    "0": "否",
+    "1": "是"
+  },
+  "question_status_valuetotext": {
+    "0": "草稿箱",
+    "1": "已发布"
+  },
+  "comment_status_valuetotext": {
+    "0": "关闭",
+    "1": "开放"
+  },
+  "mode_valuetotext": {
+    "0": "普通模式",
+    "1": "背题模式"
+  }
+};
+exports.enumConverter = enumConverter;
+function filterToWhere(filter, command) {
+  var where = {};
+  for (var field in filter) {
+    var _filter$field = filter[field],
+      type = _filter$field.type,
+      value = _filter$field.value;
+    switch (type) {
+      case "search":
+        if (typeof value === 'string' && value.length) {
+          where[field] = new RegExp(value);
+        }
+        break;
+      case "select":
+        if (value.length) {
+          var selectValue = [];
+          var _iterator = _createForOfIteratorHelper(value),
+            _step;
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var s = _step.value;
+              selectValue.push(command.eq(s));
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+          where[field] = command.or(selectValue);
+        }
+        break;
+      case "range":
+        if (value.length) {
+          var gt = value[0];
+          var lt = value[1];
+          where[field] = command.and([command.gte(gt), command.lte(lt)]);
+        }
+        break;
+      case "date":
+        if (value.length) {
+          var _value = (0, _slicedToArray2.default)(value, 2),
+            _s = _value[0],
+            e = _value[1];
+          var startDate = new Date(_s);
+          var endDate = new Date(e);
+          where[field] = command.and([command.gte(startDate), command.lte(endDate)]);
+        }
+        break;
+      case "timestamp":
+        if (value.length) {
+          var _value2 = (0, _slicedToArray2.default)(value, 2),
+            _startDate = _value2[0],
+            _endDate = _value2[1];
+          where[field] = command.and([command.gte(_startDate), command.lte(_endDate)]);
+        }
+        break;
+    }
+  }
+  return where;
+}
 
 /***/ })
 

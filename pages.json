@@ -1,6 +1,6 @@
 {
 	"pages": [{
-			"path": "pages/grid/grid",
+			"path": "pages/index/index",
 			"style": {
 				// #ifndef APP-PLUS
 				"enablePullDownRefresh": true,
@@ -20,6 +20,10 @@
 			"style": {
 				"navigationBarTitleText": "搜索"
 			}
+		}, {
+			"path": "pages/list/add"
+		}, {
+			"path": "pages/list/edit"
 		}, {
 			"path": "pages/list/detail",
 			"style": {
@@ -104,37 +108,28 @@
 			}
 		}
 		// #endif
-,{
-    "path": "pages/opendb-news-articles/add",
-    "style": {
-        "navigationBarTitleText": "新增"
-    }
-}
-,{
-    "path": "pages/opendb-news-articles/edit",
-    "style": {
-        "navigationBarTitleText": "编辑"
-    }
-}
-,{
-    "path": "pages/opendb-news-articles/list",
-    "style": {
-        "navigationBarTitleText": "列表"
-    }
-}
-,{
-    "path": "pages/opendb-news-articles/detail",
-    "style": {
-        "navigationBarTitleText": "详情"
-    }
-},
-{
-	"path" : "pages/game/game",
-	"style" : 
-	{
-		"navigationBarTitleText" : "Game"
-	}
-}
+		, {
+			"path": "pages/articles/add"
+		}, {
+			"path": "pages/articles/edit"
+		}, {
+			"path": "pages/articles/list"
+		}, {
+			"path": "pages/articles/detail"
+		},
+		{
+			"path": "pages/game/game",
+			"style": {
+				"navigationBarTitleText": "Game"
+			}
+		},
+		{
+			"path": "pages/webview/webview",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}
 ],
 	"subPackages": [{
 			"root": "uni_modules/uni-feedback",
@@ -249,7 +244,7 @@
 		},
 		// #endif
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-starter",
+		"navigationBarTitleText": "小猿赋能",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8",
 		"enablePullDownRefresh": false,
@@ -276,7 +271,7 @@
 		"borderStyle": "black",
 		"backgroundColor": "#FFFFFF",
 		"list": [{
-			"pagePath": "pages/grid/grid",
+			"pagePath": "pages/index/index",
 			"iconPath": "static/tabbar/list.png",
 			"selectedIconPath": "static/tabbar/list_active.png",
 			"text": "首页"
@@ -286,9 +281,9 @@
 			"selectedIconPath": "static/tabbar/grid_active.png",
 			"text": "题库"
 		}, {
-			"pagePath": "pages/opendb-news-articles/list",
-			"iconPath": "static/tabbar/me.png",
-			"selectedIconPath": "static/tabbar/me_active.png",
+			"pagePath": "pages/articles/list",
+			"iconPath": "static/tabbar/atricles.png",
+			"selectedIconPath": "static/tabbar/atricles_active.png",
 			"text": "文章"
 		}, {
 			"pagePath": "pages/ucenter/ucenter",

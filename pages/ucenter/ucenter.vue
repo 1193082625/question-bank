@@ -2,7 +2,9 @@
 	<view class="center">
 		<uni-sign-in ref="signIn"></uni-sign-in>
 		<view class="userInfo" @click.capture="toUserInfo">
-			<cloud-image width="150rpx" height="150rpx" v-if="hasLogin&&userInfo.avatar_file&&userInfo.avatar_file.url" :src="userInfo.avatar_file.url"></cloud-image>
+			<view class="photo" v-if="hasLogin&&userInfo.avatar_file&&userInfo.avatar_file.url">
+				<cloud-image width="150rpx" height="150rpx" :src="userInfo.avatar_file.url"></cloud-image>
+			</view>
 			
 			<view v-else class="defaultAvatarUrl">
 				<uni-icons color="#ffffff" size="50" type="person-filled" />
@@ -13,12 +15,12 @@
 				<text class="uer-name" v-else>{{$t('mine.notLogged')}}</text>
 			</view>
 		</view>
-		<uni-grid class="grid" :column="4" :showBorder="false" :square="true">
+		<!-- <uni-grid class="grid" :column="4" :showBorder="false" :square="true">
 			<uni-grid-item class="item" v-for="(item,index) in gridList" @click.native="tapGrid(index)" :key="index">
 				<uni-icons class="icon" color="#007AFF" :type="item.icon" size="26"></uni-icons>
 				<text class="text">{{item.text}}</text>
 			</uni-grid-item>
-		</uni-grid>
+		</uni-grid> -->
 		<uni-list class="center-list" v-for="(sublist , index) in ucenterList" :key="index">
 			<uni-list-item v-for="(item,i) in sublist" :title="item.title" link :rightText="item.rightText" :key="i"
 				:clickable="true" :to="item.to" @click="ucenterListClick(item)" :show-extra-icon="true"
@@ -382,6 +384,10 @@
 		border-radius: 100%;
 		justify-content: center;
 		align-items: center;
+	}
+	.photo{
+		border-radius: 50%;
+		overflow: hidden;
 	}
 
 	.logo-title {

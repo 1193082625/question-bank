@@ -1,60 +1,55 @@
 <template>
 	<view class="pages">
-		<!-- 搜索功能 -->
-		<view class="top-box">
+		<!-- todo 搜索功能 -->
+		<!-- <view class="top-box">
 			<view class="uni-search-box">
 				<uni-search-bar v-model="keyword" ref="searchBar" radius="100" cancelButton="none" disabled
 					:placeholder="inputPlaceholder" />
 				<view class="cover-search-bar" @click="searchClick"></view>
 			</view>
+		</view> -->
+		<!-- 筛选与排序 -->
+		<view class="filter-box">
+			<view>
+				<uni-data-select collection="question-categories" field="_id as value, name as text" v-model="_id" :clear="true" @change="changeCategory"></uni-data-select>
+			</view>
 			<view class="sort-select">
-				<uni-data-select
-				  v-model="sortValue"
-				  :localdata="sortRange"
-				  @change="changeSelect"
-				  :clear="false"
-				></uni-data-select>
+				<uni-data-select v-model="sortValue" :localdata="sortRange" @change="changeSelect" :clear="false"></uni-data-select>
 			</view>
 		</view>
-		<!-- 筛选与排序 -->
-		<!-- <view class="filter-box">
-			<view>
-				<uni-data-select
-					collection="question-categories"
-					field="_id as value, name as text"
-					v-model="_id"
-					:clear="false"
-					@change="changeCategory"
-				></uni-data-select>
-			</view>
-		</view> -->
 
 		<unicloud-db ref='udb' v-slot:default="{data,pagination,hasMore, loading, error, options}" @error="onqueryerror"
-			:collection="colList" :page-size="10"
-			>
+			:collection="colList" :page-size="10">
 			<!-- 基于 uni-list 的页面布局 field="user_id.nickname"-->
 			<uni-list class="uni-list" :border="false" :style="{height:listHight}">
-				
+
 				<!-- 作用于app端nvue页面的下拉加载 -->
 				<!-- #ifdef APP-NVUE -->
 				<refreshBox @refresh="refresh" :loading="loading"></refreshBox>
 				<!-- #endif -->
 
 				<!-- 列表渲染 -->
-				<uni-list-item :to="'/pages/list/detail?id='+item._id+'&qIndex='+index+'&title='+item.title" v-for="(item,index) in data" :key="index">
+				<uni-list-item
+					v-for="(item,index) in data"
+					clickable
+					@click="goDetail(item, data, index)"
+					:key="index"
+				>
 					<!-- 通过body插槽定义布局 -->
 					<template v-slot:body>
 						<view class="main">
 							<view class="question-title">
 								<text class="title">第{{index+1}}题：{{item.title}}</text>
-								<text class="question-type">{{item.is_choice ? '选择题' : '问答题'}}</text>
+								<!-- <text class="question-type">{{item.is_choice ? '选择题' : '问答题'}}</text> -->
 							</view>
 							<view class="info">
 								<view class="difficulty">
 									<text class="d-title">难度：</text>
-									<uni-rate v-model="item.difficulty" touchable="false" :size="18" :readonly="true" :is-fill="false"/>
+									<uni-rate v-model="item.difficulty" touchable="false" :size="18" :readonly="true"
+										:is-fill="false" />
 								</view>
-								<uni-dateformat class="last_modify_date" :date="item.last_modify_date" format="yyyy-MM-dd" :threshold="[60000, 2592000000]" />
+								<uni-dateformat class="last_modify_date" :date="item.last_modify_date"
+									format="yyyy-MM-dd" :threshold="[60000, 2592000000]" />
 							</view>
 						</view>
 					</template>
@@ -63,26 +58,27 @@
 				<!-- #ifdef APP-PLUS -->
 				<uni-list-item>
 					<template v-slot:body>
-				<!-- #endif -->
+					<!-- #endif -->
 						<uni-load-state @networkResume="refresh" :state="{data,pagination,hasMore, loading, error}"
 							@loadMore="loadMore">
 						</uni-load-state>
-				<!-- #ifdef APP-PLUS -->
+					<!-- #ifdef APP-PLUS -->
 					</template>
 				</uni-list-item>
 				<!-- #endif -->
 			</uni-list>
 		</unicloud-db>
-		
+
+		<!-- <uni-fab ref="fab" horizontal="right" vertical="bottom" :pop-menu="false" @fabClick="fabClick" /> -->
 	</view>
 </template>
 
 <script>
 	let cdbRef;
 	import statusBar from "@/uni_modules/uni-nav-bar/components/uni-nav-bar/uni-status-bar";
-
 	import Gps from '@/uni_modules/json-gps/js_sdk/gps.js';
-	const gps = new Gps(),db = uniCloud.database();
+	const gps = new Gps(),
+		db = uniCloud.database();
 
 	export default {
 		components: {
@@ -96,16 +92,20 @@
 					return '请输入搜索内容'
 				}
 			},
-			colList(){
+			colList() {
 				return [
-					db.collection('question-list').where(this.where).field('title,is_choice,difficulet,content,last_modify_date,user_id').orderBy(this.orderby.key, this.orderby.val).getTemp(),
+					db.collection('question-list')
+					.where(this.where)
+					.field('title,is_choice,difficulty,content,last_modify_date,user_id')
+					.orderBy(this.orderby.key, this.orderby.val)
+					.getTemp(),
 					db.collection('uni-id-users').field('_id,nickname').getTemp()
 				]
 			}
 		},
 		data() {
 			return {
-				// _id: '',
+				_id: '',
 				where: '"question_status" == 1',
 				orderby: {
 					key: '_id',
@@ -115,46 +115,46 @@
 				showRefresh: false,
 				listHight: 0,
 				sortValue: 'last_modify_date-desc',
-				sortRange: [
-					{
-						value: '_id-asc',
-						text: "默认排序"
-					}, {
-						value: 'difficulty-asc',
-						text: "难度升序"
-					}, {
-						value: 'difficulty-desc',
-						text: "难度降序"
-					}, {
-						value: 'last_modify_date-asc',
-						text: "更新时间升序"
-					}, {
-						value: 'last_modify_date-desc',
-						text: "更新时间降序"
-					}, 
-				]
+				sortRange: [{
+					value: '_id-asc',
+					text: "默认排序"
+				}, {
+					value: 'difficulty-asc',
+					text: "难度升序"
+				}, {
+					value: 'difficulty-desc',
+					text: "难度降序"
+				}, {
+					value: 'last_modify_date-asc',
+					text: "时间升序"
+				}, {
+					value: 'last_modify_date-desc',
+					text: "时间降序"
+				}, ],
 			}
 		},
 		watch: {
 			keyword(keyword, oldValue) {
+				console.log('搜索内容发生变化', keyword);
 				let wheres = this.where.split('&&');
 				wheres = wheres.filter(item => item.indexOf('category_id') === -1);
 				if (keyword) {
 					wheres.push(`/${keyword}/.test(title)`);
 				}
-				this.where = wheres.join('&& ');
+				this.where = wheres.join('&&');
 				console.log('修改了搜索内容', this.where);
 			}
 		},
 		async onReady() {
 			// #ifdef APP-NVUE
 			/* 可用窗口高度 - 搜索框高 - 状态栏高 */
-			this.listHight = uni.getSystemInfoSync().windowHeight - uni.getSystemInfoSync().statusBarHeight - 50 + 'px';
+			this.listHight = uni.getSystemInfoSync().windowHeight - uni.getSystemInfoSync().statusBarHeight - 50 +
+			'px';
 			// #endif
 			// #ifndef APP-NVUE
 			this.listHight = 'auto'
 			// #endif
-			cdbRef = this.$refs.udb
+			cdbRef = this.$refs.udb;
 		},
 		async onShow() {
 			this.keyword = getApp().globalData.searchText
@@ -166,9 +166,9 @@
 			// });
 			//默认h5端不获取定位
 			// #ifndef H5
-			let location = await gps.getLocation({
-				geocode: true
-			})
+			// let location = await gps.getLocation({
+			// 	geocode: true
+			// })
 			// console.log(location);
 			// #endif
 			// if(location){
@@ -182,21 +182,52 @@
 		onLoad(event) {
 			// 获取分类id
 			if (event.category_id) {
-				console.log('要带上分类id获取数据', event.category_id);
 				this._id = event.category_id;
 				this.changeCategory(event.category_id);
+			} else {
+				this._id = '';
 			}
 		},
 		methods: {
+			goDetail(item, list, index) {
+				uni.setStorage({
+					key: 'question-lists',
+					data: list,
+					success() {
+						console.log('数据存储成功');
+					}
+				})
+				uni.navigateTo({ url: `/pages/list/detail?id=${item._id}&qIndex=${index}&title=${item.title}` })
+			},
+			fabClick() {
+				console.log('要进入添加页面');
+				// 打开新增页面
+				uni.navigateTo({
+					url: './add',
+					events: {
+						// 监听新增数据成功后, 刷新当前页面数据
+						refreshData: () => {
+							cdbRef.loadData({
+								clear: true
+							})
+						}
+					}
+				})
+			},
 			changeCategory(cId) {
 				let wheres = this.where.split('&&');
 				wheres = wheres.filter(item => item.indexOf('category_id') === -1);
-				wheres.push(`"category_id" == "${cId}"`);
+				if(cId) {
+					wheres.push(`"category_id" == "${cId}"`);
+				}
 				this.where = wheres.join('&&');
 			},
 			changeSelect(e) {
 				const [key, val] = e.split('-');
-				this.orderby = { key, val };
+				this.orderby = {
+					key,
+					val
+				};
 			},
 			searchClick(e) { //点击搜索框
 				uni.hideKeyboard();
@@ -229,7 +260,7 @@
 			onpullingdown(e) {
 				console.log(e);
 				this.showRefresh = true
-				if(e.pullingDistance>100){
+				if (e.pullingDistance > 100) {
 					this.refresh()
 				}
 			}
@@ -252,34 +283,42 @@
 		box-sizing: border-box;
 		flex-direction: column;
 	}
+
 	/* #endif */
 	.pages {
 		background-color: #FFFFFF;
 	}
-	.top-box{
+
+	.top-box {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 	}
-	.sort-select{
+
+	.sort-select {
 		width: 260rpx;
 	}
-	.filter-box{
+
+	.filter-box {
 		display: flex;
 		gap: 50rpx;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-around;
-		box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+		box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+		margin-bottom: 1px;
 	}
-	.filter-box > view{
+
+	.filter-box>view {
 		margin-left: 30rpx;
 		margin-right: 30rpx;
 		width: 240rpx;
 	}
-	/deep/ .uni-select{
-		border: none!important;
+
+	/deep/ .uni-select {
+		border: none !important;
 	}
+
 	.avatar {
 		width: 200rpx;
 		height: 200rpx;
@@ -290,33 +329,44 @@
 		justify-content: space-between;
 		flex: 1;
 	}
+
 	.question-title {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
 	}
+
 	.title {
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 700;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: block;
+		width: calc(100vw - 100px);
 	}
-	.question-type{
+
+	.question-type {
 		background-color: #007aff;
 		color: #fff;
 		padding: 2rpx 10rpx;
 		font-size: 12px;
 		border-radius: 4rpx;
 	}
-	.difficulty{
+
+	.difficulty {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 	}
-	.difficulty .d-title{
+
+	.difficulty .d-title {
 		font-size: 12px;
 		color: #333;
 		margin-right: 8rpx;
 	}
+
 	.info {
 		margin-top: 20rpx;
 		flex-direction: row;
@@ -325,7 +375,7 @@
 
 	.author,
 	.last_modify_date {
-		font-size: 14px;
+		font-size: 12px;
 		color: #999999;
 	}
 
@@ -343,6 +393,7 @@
 		/* #endif */
 		flex: 1;
 	}
+
 	.cover-search-bar {
 		height: 50px;
 		position: relative;
@@ -351,5 +402,9 @@
 		/* #ifndef APP-NVUE */
 		z-index: 999;
 		/* #endif */
+	}
+	/deep/ .uni-select__input-text{
+		font-size: 14px;
+		color: #000;
 	}
 </style>

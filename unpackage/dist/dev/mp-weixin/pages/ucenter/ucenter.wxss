@@ -51,6 +51,10 @@ page.data-v-4883731c {
   justify-content: center;
   align-items: center;
 }
+.photo.data-v-4883731c {
+  border-radius: 50%;
+  overflow: hidden;
+}
 .logo-title.data-v-4883731c {
   flex: 1;
   align-items: center;

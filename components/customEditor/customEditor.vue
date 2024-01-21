@@ -82,7 +82,7 @@
 </template>
 
 <script>
-	import { throttle } from '@/utils/index.js';
+	const {throttle} = uniCloud.importObject('utils');
 	export default {
 		name:"customEditor",
 		data() {
@@ -104,17 +104,24 @@
 			// #endif
 		},
 		methods: {
+			clearWithOutTip() {
+				this.editorCtx.clear({
+					success: function(res) {
+						console.log("clear success")
+					}
+				})
+			},
 			readOnlyChange() {
 				this.readOnly = !this.readOnly
 			},
-			dataChanged: throttle(function() {
+			dataChanged() {
 				this.editorCtx.getContents({
 					success: (res) => {
 						this.$emit('dataChange', res.html);
 					},
 					fail: function(A) {}
 				})
-			}, 500),
+			},
 			onEditorReady() {
 				// #ifdef MP-BAIDU
 				this.editorCtx = requireDynamicLib('editorLib').createEditorContext('editor');
@@ -122,11 +129,10 @@
 
 				// #ifdef APP-PLUS || MP-WEIXIN || H5
 				uni.createSelectorQuery().select('#editor').context((res) => {
-					this.editorCtx = res.context;
+					this.editorCtx = res?.context;
 				}).exec()
 				// #endif
 				
-				console.log('即将设置富文本默认内容');
 				if(this.defaultConent) {
 					this.editorCtx.setContents({
 						html: this.defaultConent

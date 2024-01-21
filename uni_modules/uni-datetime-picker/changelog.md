@@ -1,3 +1,9 @@
+## 2.2.28（2024-01-18）
+- 去除 noChange事件，当进行日期范围选择时，若只选了一天，则开始结束日期都为同一天 [详情](https://github.com/dcloudio/uni-ui/issues/815)
+## 2.2.27（2024-01-10）
+- 优化 增加noChange事件，当进行日期范围选择时，若有空值，则触发该事件 [详情](https://github.com/dcloudio/uni-ui/issues/815)
+## 2.2.26（2024-01-08）
+- 修复 字节小程序时间选择范围器失效问题 [详情](https://github.com/dcloudio/uni-ui/issues/834)
 ## 2.2.25（2023-10-18）
 - 修复 PC端初次修改时间，开始时间未更新的Bug [详情](https://github.com/dcloudio/uni-ui/issues/737)
 ## 2.2.24（2023-06-02）

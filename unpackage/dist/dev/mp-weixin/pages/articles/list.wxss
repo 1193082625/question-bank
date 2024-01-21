@@ -1,0 +1,29 @@
+
+.content.data-v-71fcdcf2 {
+	/* background: #008000; */
+	height: 100%;
+}
+.article-item.data-v-71fcdcf2{
+	display: flex;
+	flex-direction: column;
+}
+.title.data-v-71fcdcf2{
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 10rpx;
+	overflow: hidden;
+	width: 700rpx;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.time-box text.data-v-71fcdcf2,
+.last_modify_date.data-v-71fcdcf2 {
+	font-size: 12px;
+	color: #999999;
+}
+.excerpt.data-v-71fcdcf2{
+	display: block;
+	font-size: 12px;
+}
+
